@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Dashboard — Tech4Girls LMS</title>
+	<meta name="description" content="Admin dashboard for Tech4Girls LMS. Manage students, lecturers, and track assignments.">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="img/Tech4Girls logo.png">
+	<link rel="apple-touch-icon" href="img/Tech4Girls logo.png">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+
+	<nav class="navbar" id="navbar">
+		<div class="navbar-inner">
+			<a href="index.html" class="navbar-logo" id="logo-link">
+				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+				<span class="logo-text">Tech4Girls</span>
+			</a>
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
+			<ul class="navbar-links" id="navbar-links">
+				<li><a href="index.html" id="nav-home">Home</a></li>
+				<li><a href="#" class="nav-dashboard" id="nav-dashboard">Dashboard</a></li>
+				<li><a href="#students-section" id="nav-students">Students</a></li>
+				<li><a href="#lecturers-section" id="nav-lecturers">Lecturers</a></li>
+				<li><a href="#" class="nav-user-menu" id="nav-user">
+					<span class="nav-user-avatar">AD</span>
+					<span class="nav-user-name">Admin</span>
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- ========== DASHBOARD ========== -->
+	<main class="dashboard-main" id="dashboard-main">
+
+		<!-- Dashboard Header -->
+		<div class="dashboard-header">
+			<div class="dashboard-header-top">
+				<div class="dashboard-greeting">
+					<h1>Admin Dashboard</h1>
+					<p>Manage students, lecturers, and track assignments</p>
+				</div>
+				<div class="dashboard-role-badge">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+						<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+					</svg>
+					Administrator
+				</div>
+			</div>
+		</div>
+
+		<!-- Stat Cards -->
+		<div class="stat-cards">
+			<div class="stat-card card-blue">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+						<circle cx="9" cy="7" r="4"/>
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+						<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+					</svg>
+				</div>
+				<div class="stat-card-value" id="stat-students">24</div>
+				<div class="stat-card-label">Total Students</div>
+			</div>
+
+			<div class="stat-card card-navy">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+						<circle cx="12" cy="7" r="4"/>
+					</svg>
+				</div>
+				<div class="stat-card-value" id="stat-lecturers">6</div>
+				<div class="stat-card-label">Total Lecturers</div>
+			</div>
+
+			<div class="stat-card card-sky">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="16 18 22 12 16 6"/>
+						<polyline points="8 6 2 12 8 18"/>
+					</svg>
+				</div>
+				<div class="stat-card-value" id="stat-frontend">14</div>
+				<div class="stat-card-label">Frontend Track</div>
+			</div>
+
+			<div class="stat-card card-deep">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+						<line x1="8" y1="21" x2="16" y2="21"/>
+						<line x1="12" y1="17" x2="12" y2="21"/>
+					</svg>
+				</div>
+				<div class="stat-card-value" id="stat-backend">10</div>
+				<div class="stat-card-label">Backend Track</div>
+			</div>
+		</div>
+
+		<!-- ========== STUDENTS SECTION ========== -->
+		<div class="dashboard-section" id="students-section">
+			<div class="dashboard-section-header">
+				<div class="dashboard-section-title">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+						<circle cx="9" cy="7" r="4"/>
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+						<path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+					</svg>
+					<h2>Student Management</h2>
+				</div>
+				<button class="btn-action btn-action-primary" id="btn-add-student" onclick="openModal('student-modal')">
+					<svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="12" y1="5" x2="12" y2="19"/>
+						<line x1="5" y1="12" x2="19" y2="12"/>
+					</svg>
+					Add Student
+				</button>
+			</div>
+
+			<div class="dashboard-section-body">
+				<!-- Search & Filter -->
+				<div class="search-filter-bar" style="margin-bottom: 20px;">
+					<div class="search-input-wrap">
+						<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="11" cy="11" r="8"/>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"/>
+						</svg>
+						<input type="text" class="search-input" id="search-students" placeholder="Search students by name, email, or ID...">
+					</div>
+					<select class="filter-select" id="filter-student-track">
+						<option value="">All Tracks</option>
+						<option value="frontend">Frontend</option>
+						<option value="backend">Backend</option>
+					</select>
+				</div>
+
+				<!-- Students Table -->
+				<div class="dashboard-table-wrapper">
+					<table class="dashboard-table" id="students-table">
+						<thead>
+							<tr>
+								<th>Student</th>
+								<th>Student ID</th>
+								<th>Track</th>
+								<th>Status</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar">HB</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Hajira Baffoe</span>
+											<span class="table-user-email">hajira@email.com</span>
+										</div>
+									</div>
+								</td>
+								<td>TG-2026-0001</td>
+								<td><span class="track-badge track-frontend">Frontend</span></td>
+								<td><span class="status-dot active"></span> Active</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar">AA</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Ama Asante</span>
+											<span class="table-user-email">ama@email.com</span>
+										</div>
+									</div>
+								</td>
+								<td>TG-2026-0002</td>
+								<td><span class="track-badge track-backend">Backend</span></td>
+								<td><span class="status-dot active"></span> Active</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar">EO</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Efua Owusu</span>
+											<span class="table-user-email">efua@email.com</span>
+										</div>
+									</div>
+								</td>
+								<td>TG-2026-0003</td>
+								<td><span class="track-badge track-frontend">Frontend</span></td>
+								<td><span class="status-dot active"></span> Active</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar">FA</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Fatima Abdulai</span>
+											<span class="table-user-email">fatima@email.com</span>
+										</div>
+									</div>
+								</td>
+								<td>TG-2026-0004</td>
+								<td><span class="track-badge track-backend">Backend</span></td>
+								<td><span class="status-dot inactive"></span> Inactive</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- ========== LECTURERS SECTION ========== -->
+		<div class="dashboard-section" id="lecturers-section">
+			<div class="dashboard-section-header">
+				<div class="dashboard-section-title">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+						<circle cx="12" cy="7" r="4"/>
+					</svg>
+					<h2>Lecturer Management</h2>
+				</div>
+				<button class="btn-action btn-action-primary" id="btn-add-lecturer" onclick="openModal('lecturer-modal')">
+					<svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="12" y1="5" x2="12" y2="19"/>
+						<line x1="5" y1="12" x2="19" y2="12"/>
+					</svg>
+					Add Lecturer
+				</button>
+			</div>
+
+			<div class="dashboard-section-body">
+				<!-- Search & Filter -->
+				<div class="search-filter-bar" style="margin-bottom: 20px;">
+					<div class="search-input-wrap">
+						<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="11" cy="11" r="8"/>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"/>
+						</svg>
+						<input type="text" class="search-input" id="search-lecturers" placeholder="Search lecturers by name or email...">
+					</div>
+					<select class="filter-select" id="filter-lecturer-track">
+						<option value="">All Tracks</option>
+						<option value="frontend">Frontend</option>
+						<option value="backend">Backend</option>
+					</select>
+				</div>
+
+				<!-- Lecturers Table -->
+				<div class="dashboard-table-wrapper">
+					<table class="dashboard-table" id="lecturers-table">
+						<thead>
+							<tr>
+								<th>Lecturer</th>
+								<th>Staff ID</th>
+								<th>Track</th>
+								<th>Courses</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar" style="background: var(--blue);">JM</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Jane Mensah</span>
+											<span class="table-user-email">jane.m@tech4girls.org</span>
+										</div>
+									</div>
+								</td>
+								<td>STF-2026-0001</td>
+								<td><span class="track-badge track-frontend">Frontend</span></td>
+								<td>3</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar" style="background: var(--blue);">KA</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Kwame Asante</span>
+											<span class="table-user-email">kwame.a@tech4girls.org</span>
+										</div>
+									</div>
+								</td>
+								<td>STF-2026-0002</td>
+								<td><span class="track-badge track-backend">Backend</span></td>
+								<td>2</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="table-avatar" style="background: var(--blue);">AD</div>
+										<div class="table-user-info">
+											<span class="table-user-name">Adwoa Darko</span>
+											<span class="table-user-email">adwoa.d@tech4girls.org</span>
+										</div>
+									</div>
+								</td>
+								<td>STF-2026-0003</td>
+								<td><span class="track-badge track-frontend">Frontend</span></td>
+								<td>2</td>
+								<td>
+									<div class="table-actions">
+										<button class="table-action-btn btn-edit" title="Edit">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+												<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+											</svg>
+										</button>
+										<button class="table-action-btn btn-delete" title="Remove">
+											<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+												<polyline points="3 6 5 6 21 6"/>
+												<path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+											</svg>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- ========== ADD STUDENT MODAL ========== -->
+	<div class="modal-overlay" id="student-modal">
+		<div class="modal">
+			<div class="modal-header">
+				<h3>Add New Student</h3>
+				<button class="modal-close" onclick="closeModal('student-modal')">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="18" y1="6" x2="6" y2="18"/>
+						<line x1="6" y1="6" x2="18" y2="18"/>
+					</svg>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form class="dashboard-form" id="add-student-form">
+					<div class="form-group">
+						<label class="form-label" for="student-fname">First Name</label>
+						<input type="text" class="form-input" id="student-fname" name="student-fname" placeholder="e.g. Hajira" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="student-lname">Last Name</label>
+						<input type="text" class="form-input" id="student-lname" name="student-lname" placeholder="e.g. Baffoe" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="student-email">Email Address</label>
+						<input type="email" class="form-input" id="student-email" name="student-email" placeholder="student@email.com" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="student-id-input">Student ID</label>
+						<input type="text" class="form-input" id="student-id-input" name="student-id" placeholder="TG-2026-XXXX" required>
+					</div>
+					<div class="form-group full-width">
+						<label class="form-label" for="student-track">Assign Track</label>
+						<select class="form-select" id="student-track" name="student-track" required>
+							<option value="" disabled selected>Select a track</option>
+							<option value="frontend">Frontend</option>
+							<option value="backend">Backend</option>
+						</select>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn-action btn-action-primary">
+							<svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="20 6 9 17 4 12"/>
+							</svg>
+							Add Student
+						</button>
+						<button type="button" class="btn-action btn-action-secondary" onclick="closeModal('student-modal')">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- ========== ADD LECTURER MODAL ========== -->
+	<div class="modal-overlay" id="lecturer-modal">
+		<div class="modal">
+			<div class="modal-header">
+				<h3>Add New Lecturer</h3>
+				<button class="modal-close" onclick="closeModal('lecturer-modal')">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="18" y1="6" x2="6" y2="18"/>
+						<line x1="6" y1="6" x2="18" y2="18"/>
+					</svg>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form class="dashboard-form" id="add-lecturer-form">
+					<div class="form-group">
+						<label class="form-label" for="lecturer-fname">First Name</label>
+						<input type="text" class="form-input" id="lecturer-fname" name="lecturer-fname" placeholder="e.g. Jane" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="lecturer-lname">Last Name</label>
+						<input type="text" class="form-input" id="lecturer-lname" name="lecturer-lname" placeholder="e.g. Mensah" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="lecturer-email">Email Address</label>
+						<input type="email" class="form-input" id="lecturer-email" name="lecturer-email" placeholder="lecturer@tech4girls.org" required>
+					</div>
+					<div class="form-group">
+						<label class="form-label" for="lecturer-id-input">Staff ID</label>
+						<input type="text" class="form-input" id="lecturer-id-input" name="lecturer-id" placeholder="STF-2026-XXXX" required>
+					</div>
+					<div class="form-group full-width">
+						<label class="form-label" for="lecturer-track">Assign Track</label>
+						<select class="form-select" id="lecturer-track" name="lecturer-track" required>
+							<option value="" disabled selected>Select a track</option>
+							<option value="frontend">Frontend</option>
+							<option value="backend">Backend</option>
+						</select>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn-action btn-action-primary">
+							<svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="20 6 9 17 4 12"/>
+							</svg>
+							Add Lecturer
+						</button>
+						<button type="button" class="btn-action btn-action-secondary" onclick="closeModal('lecturer-modal')">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- ========== FOOTER ========== -->
+	<footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-top">
+				<div class="footer-brand-col">
+					<div class="footer-brand">
+						<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+						<div class="footer-brand-info">
+							<span class="footer-brand-name">Tech4Girls</span>
+							<span class="footer-brand-desc">Learning Management System</span>
+						</div>
+					</div>
+					<p class="footer-tagline">Empowering young women through technology education, one student at a time.</p>
+				</div>
+				<div class="footer-nav-col">
+					<h4 class="footer-nav-title">Quick Links</h4>
+					<div class="footer-links">
+						<a href="index.html" id="footer-home">Home</a>
+						<a href="index.html#features" id="footer-features">Features</a>
+						<a href="index.html#about" id="footer-about">About</a>
+						<a href="login.html" id="footer-signin">Sign In</a>
+					</div>
+				</div>
+				<div class="footer-partner-col">
+					<h4 class="footer-nav-title">Partner</h4>
+					<div class="footer-partner">
+						<img src="img/hacsa logo.jpg" alt="HACSA Logo">
+						<span>HACSA Foundation</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p class="footer-copy">&copy; 2026 Tech4Girls by HACSA Foundation. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// ===== Navbar =====
+		const navbar = document.getElementById('navbar');
+		window.addEventListener('scroll', () => {
+			navbar.classList.toggle('scrolled', window.scrollY > 10);
+		});
+
+		const navToggle = document.getElementById('nav-toggle');
+		const navLinks = document.getElementById('navbar-links');
+		navToggle.addEventListener('click', () => {
+			navToggle.classList.toggle('active');
+			navLinks.classList.toggle('active');
+		});
+
+		navLinks.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				navToggle.classList.remove('active');
+				navLinks.classList.remove('active');
+			});
+		});
+
+		// ===== Modal Functions =====
+		function openModal(id) {
+			document.getElementById(id).classList.add('open');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeModal(id) {
+			document.getElementById(id).classList.remove('open');
+			document.body.style.overflow = '';
+		}
+
+		// Close modal on overlay click
+		document.querySelectorAll('.modal-overlay').forEach(overlay => {
+			overlay.addEventListener('click', (e) => {
+				if (e.target === overlay) {
+					overlay.classList.remove('open');
+					document.body.style.overflow = '';
+				}
+			});
+		});
+
+		// Close modal on Escape key
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				document.querySelectorAll('.modal-overlay.open').forEach(modal => {
+					modal.classList.remove('open');
+					document.body.style.overflow = '';
+				});
+			}
+		});
+
+		// ===== Form Submissions (Demo) =====
+		document.getElementById('add-student-form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const fname = document.getElementById('student-fname').value;
+			const lname = document.getElementById('student-lname').value;
+			const track = document.getElementById('student-track').value;
+			alert(`Student "${fname} ${lname}" added to ${track} track.\n\n(Demo — connect to backend to save.)`);
+			closeModal('student-modal');
+			this.reset();
+		});
+
+		document.getElementById('add-lecturer-form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const fname = document.getElementById('lecturer-fname').value;
+			const lname = document.getElementById('lecturer-lname').value;
+			const track = document.getElementById('lecturer-track').value;
+			alert(`Lecturer "${fname} ${lname}" added to ${track} track.\n\n(Demo — connect to backend to save.)`);
+			closeModal('lecturer-modal');
+			this.reset();
+		});
+
+		// ===== Search Filtering (Demo) =====
+		document.getElementById('search-students').addEventListener('input', function() {
+			filterTable('students-table', this.value);
+		});
+
+		document.getElementById('search-lecturers').addEventListener('input', function() {
+			filterTable('lecturers-table', this.value);
+		});
+
+		function filterTable(tableId, query) {
+			const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+			const q = query.toLowerCase();
+			rows.forEach(row => {
+				const text = row.textContent.toLowerCase();
+				row.style.display = text.includes(q) ? '' : 'none';
+			});
+		}
+
+		// ===== Track Filter (Demo) =====
+		document.getElementById('filter-student-track').addEventListener('change', function() {
+			filterByTrack('students-table', this.value);
+		});
+
+		document.getElementById('filter-lecturer-track').addEventListener('change', function() {
+			filterByTrack('lecturers-table', this.value);
+		});
+
+		function filterByTrack(tableId, track) {
+			const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+			rows.forEach(row => {
+				if (!track) { row.style.display = ''; return; }
+				const badge = row.querySelector('.track-badge');
+				if (badge) {
+					const rowTrack = badge.classList.contains('track-frontend') ? 'frontend' : 'backend';
+					row.style.display = rowTrack === track ? '' : 'none';
+				}
+			});
+		}
+	</script>
+</body>
+</html>

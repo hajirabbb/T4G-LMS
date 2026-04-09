@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Student Dashboard — Tech4Girls LMS</title>
+	<meta name="description" content="Student dashboard for Tech4Girls LMS. View your courses, track progress, and access learning materials.">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="img/Tech4Girls logo.png">
+	<link rel="apple-touch-icon" href="img/Tech4Girls logo.png">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-page">
+
+	
+	<nav class="navbar" id="navbar">
+		<div class="navbar-inner">
+			<a href="index.html" class="navbar-logo" id="logo-link">
+				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+				<span class="logo-text">Tech4Girls</span>
+			</a>
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
+			<ul class="navbar-links" id="navbar-links">
+				<li><a href="index.html" id="nav-home">Home</a></li>
+				<li><a href="#" class="nav-dashboard" id="nav-dashboard">Dashboard</a></li>
+				<li><a href="#my-courses" id="nav-courses">My Courses</a></li>
+				<li><a href="#" class="nav-user-menu" id="nav-user">
+					<span class="nav-user-avatar">HB</span>
+					<span class="nav-user-name">Hajira Baffoe</span>
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- ========== DASHBOARD ========== -->
+	<main class="dashboard-main" id="dashboard-main">
+
+		<!-- Dashboard Header -->
+		<div class="dashboard-header">
+			<div class="dashboard-header-top">
+				<div class="dashboard-greeting">
+					<h1>Welcome, Hajira 👋</h1>
+					<p>Here's an overview of your learning journey</p>
+				</div>
+				<div class="dashboard-role-badge">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+						<path d="M6 12v5c3 3 10 3 12 0v-5"/>
+					</svg>
+					Student — Frontend Track
+				</div>
+			</div>
+		</div>
+
+		<!-- Stat Cards -->
+		<div class="stat-cards">
+			<div class="stat-card card-blue">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+					</svg>
+				</div>
+				<div class="stat-card-value">3</div>
+				<div class="stat-card-label">Enrolled Courses</div>
+			</div>
+
+			<div class="stat-card card-cyan">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="20 6 9 17 4 12"/>
+					</svg>
+				</div>
+				<div class="stat-card-value">1</div>
+				<div class="stat-card-label">Completed</div>
+			</div>
+
+			<div class="stat-card card-sky">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10"/>
+						<polyline points="12 6 12 12 16 14"/>
+					</svg>
+				</div>
+				<div class="stat-card-value">2</div>
+				<div class="stat-card-label">In Progress</div>
+			</div>
+
+			<div class="stat-card card-navy">
+				<div class="stat-card-icon">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+						<polyline points="14 2 14 8 20 8"/>
+					</svg>
+				</div>
+				<div class="stat-card-value">12</div>
+				<div class="stat-card-label">Materials Available</div>
+			</div>
+		</div>
+
+		<!-- ========== MY COURSES ========== -->
+		<div class="dashboard-section" id="my-courses">
+			<div class="dashboard-section-header">
+				<div class="dashboard-section-title">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+					</svg>
+					<h2>My Courses</h2>
+				</div>
+				<!-- Tabs for filtering -->
+				<div class="dashboard-tabs" id="course-tabs">
+					<button class="dashboard-tab active" data-filter="all">All Courses</button>
+					<button class="dashboard-tab" data-filter="in-progress">In Progress</button>
+					<button class="dashboard-tab" data-filter="completed">Completed</button>
+				</div>
+			</div>
+
+			<div class="dashboard-section-body">
+				<div class="course-cards" id="course-cards">
+
+					<!-- Course Card 1 — Completed -->
+					<div class="course-card" data-status="completed">
+						<div class="course-card-banner banner-frontend"></div>
+						<div class="course-card-body">
+							<div class="course-card-track">
+								<span class="track-badge track-frontend">Frontend</span>
+							</div>
+							<h3 class="course-card-title">HTML & CSS Fundamentals</h3>
+							<p class="course-card-desc">Learn the building blocks of the web — HTML for structure and CSS for styling beautiful, responsive pages.</p>
+
+							<div class="course-progress">
+								<div class="course-progress-bar">
+									<div class="course-progress-fill" style="width: 100%;"></div>
+								</div>
+								<div class="course-progress-text">
+									<span>100% Complete</span>
+									<span>5/5 materials</span>
+								</div>
+							</div>
+
+							<div class="course-card-meta">
+								<div class="course-card-meta-item">
+									<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+										<circle cx="12" cy="7" r="4"/>
+									</svg>
+									Jane Mensah
+								</div>
+								<div class="course-card-meta-item">
+									<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+										<polyline points="14 2 14 8 20 8"/>
+									</svg>
+									5 PDFs
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Course Card 2 — In Progress -->
+					<div class="course-card" data-status="in-progress">
+						<div class="course-card-banner banner-frontend"></div>
+						<div class="course-card-body">
+							<div class="course-card-track">
+								<span class="track-badge track-frontend">Frontend</span>
+							</div>
+							<h3 class="course-card-title">JavaScript Basics</h3>
+							<p class="course-card-desc">Dive into core programming concepts with JavaScript — variables, functions, loops, and DOM manipulation.</p>
+
+							<div class="course-progress">
+								<div class="course-progress-bar">
+									<div class="course-progress-fill" style="width: 50%;"></div>
+								</div>
+								<div class="course-progress-text">
+									<span>50% Complete</span>
+									<span>2/4 materials</span>
+								</div>
+							</div>
+
+							<div class="course-card-meta">
+								<div class="course-card-meta-item">
+									<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+										<circle cx="12" cy="7" r="4"/>
+									</svg>
+									Jane Mensah
+								</div>
+								<div class="course-card-meta-item">
+									<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+										<polyline points="14 2 14 8 20 8"/>
+									</svg>
+									4 PDFs
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Course Card 3 — In Progress -->
+					<div class="course-card" data-status="in-progress">
+						<div class="course-card-banner banner-frontend"></div>
+						<div class="course-card-body">
+							<div class="course-card-track">
+								<span class="track-badge track-frontend">Frontend</span>
+							</div>
+							<h3 class="course-card-title">React Introduction</h3>
+							<p class="course-card-desc">Build modern user interfaces with React — components, props, state, and the virtual DOM.</p>
+
+							<div class="course-progress">
+								<div class="course-progress-bar">
+									<div class="course-progress-fill" style="width: 33%;"></div>
+								</div>
+								<div class="course-progress-text">
+									<span>33% Complete</span>
+									<span>1/3 materials</span>
+								</div>
+							</div>
+
+							<div class="course-card-meta">
+								<div class="course-card-meta-item">
+									<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+										<circle cx="12" cy="7" r="4"/>
+									</svg>
+									Adwoa Darko
+								</div>
+								<div class="course-card-meta-item">
+									<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+										<polyline points="14 2 14 8 20 8"/>
+									</svg>
+									3 PDFs
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- ========== RECENT MATERIALS SECTION ========== -->
+		<div class="dashboard-section" id="recent-materials">
+			<div class="dashboard-section-header">
+				<div class="dashboard-section-title">
+					<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+						<polyline points="14 2 14 8 20 8"/>
+					</svg>
+					<h2>Recent Materials</h2>
+				</div>
+			</div>
+
+			<div class="dashboard-section-body">
+				<div class="dashboard-table-wrapper">
+					<table class="dashboard-table" id="materials-table">
+						<thead>
+							<tr>
+								<th>Material</th>
+								<th>Course</th>
+								<th>Uploaded</th>
+								<th>Size</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="uploaded-file-icon" style="width:32px; height:32px;">
+											<span style="font-size: 0.6rem;">PDF</span>
+										</div>
+										<span class="table-user-name">Week3_CSS_Flexbox.pdf</span>
+									</div>
+								</td>
+								<td>HTML & CSS Fundamentals</td>
+								<td>Apr 7, 2026</td>
+								<td>2.1 MB</td>
+								<td>
+									<button class="btn-action btn-action-secondary btn-action-sm">
+										<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+											<polyline points="7 10 12 15 17 10"/>
+											<line x1="12" y1="15" x2="12" y2="3"/>
+										</svg>
+										Download
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="uploaded-file-icon" style="width:32px; height:32px;">
+											<span style="font-size: 0.6rem;">PDF</span>
+										</div>
+										<span class="table-user-name">JS_Variables_Functions.pdf</span>
+									</div>
+								</td>
+								<td>JavaScript Basics</td>
+								<td>Apr 5, 2026</td>
+								<td>1.8 MB</td>
+								<td>
+									<button class="btn-action btn-action-secondary btn-action-sm">
+										<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+											<polyline points="7 10 12 15 17 10"/>
+											<line x1="12" y1="15" x2="12" y2="3"/>
+										</svg>
+										Download
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="uploaded-file-icon" style="width:32px; height:32px;">
+											<span style="font-size: 0.6rem;">PDF</span>
+										</div>
+										<span class="table-user-name">React_Components_101.pdf</span>
+									</div>
+								</td>
+								<td>React Introduction</td>
+								<td>Apr 3, 2026</td>
+								<td>3.2 MB</td>
+								<td>
+									<button class="btn-action btn-action-secondary btn-action-sm">
+										<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+											<polyline points="7 10 12 15 17 10"/>
+											<line x1="12" y1="15" x2="12" y2="3"/>
+										</svg>
+										Download
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div class="table-user">
+										<div class="uploaded-file-icon" style="width:32px; height:32px;">
+											<span style="font-size: 0.6rem;">PDF</span>
+										</div>
+										<span class="table-user-name">Week5_CSS_Grid_Layout.pdf</span>
+									</div>
+								</td>
+								<td>HTML & CSS Fundamentals</td>
+								<td>Apr 1, 2026</td>
+								<td>2.5 MB</td>
+								<td>
+									<button class="btn-action btn-action-secondary btn-action-sm">
+										<svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+											<polyline points="7 10 12 15 17 10"/>
+											<line x1="12" y1="15" x2="12" y2="3"/>
+										</svg>
+										Download
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- ========== FOOTER ========== -->
+	<footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-top">
+				<div class="footer-brand-col">
+					<div class="footer-brand">
+						<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+						<div class="footer-brand-info">
+							<span class="footer-brand-name">Tech4Girls</span>
+							<span class="footer-brand-desc">Learning Management System</span>
+						</div>
+					</div>
+					<p class="footer-tagline">Empowering young women through technology education, one student at a time.</p>
+				</div>
+				<div class="footer-nav-col">
+					<h4 class="footer-nav-title">Quick Links</h4>
+					<div class="footer-links">
+						<a href="index.html" id="footer-home">Home</a>
+						<a href="index.html#features" id="footer-features">Features</a>
+						<a href="index.html#about" id="footer-about">About</a>
+						<a href="login.html" id="footer-signin">Sign In</a>
+					</div>
+				</div>
+				<div class="footer-partner-col">
+					<h4 class="footer-nav-title">Partner</h4>
+					<div class="footer-partner">
+						<img src="img/hacsa logo.jpg" alt="HACSA Logo">
+						<span>HACSA Foundation</span>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p class="footer-copy">&copy; 2026 Tech4Girls by HACSA Foundation. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// ===== Navbar =====
+		const navbar = document.getElementById('navbar');
+		window.addEventListener('scroll', () => {
+			navbar.classList.toggle('scrolled', window.scrollY > 10);
+		});
+
+		const navToggle = document.getElementById('nav-toggle');
+		const navLinks = document.getElementById('navbar-links');
+		navToggle.addEventListener('click', () => {
+			navToggle.classList.toggle('active');
+			navLinks.classList.toggle('active');
+		});
+
+		navLinks.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				navToggle.classList.remove('active');
+				navLinks.classList.remove('active');
+			});
+		});
+
+		// ===== Course Tab Filtering =====
+		const tabs = document.querySelectorAll('.dashboard-tab');
+		const courseCards = document.querySelectorAll('.course-card');
+
+		tabs.forEach(tab => {
+			tab.addEventListener('click', () => {
+				// Update active tab
+				tabs.forEach(t => t.classList.remove('active'));
+				tab.classList.add('active');
+
+				const filter = tab.dataset.filter;
+
+				courseCards.forEach(card => {
+					if (filter === 'all') {
+						card.style.display = '';
+					} else {
+						card.style.display = card.dataset.status === filter ? '' : 'none';
+					}
+				});
+			});
+		});
+
+		// ===== Download Buttons (Demo) =====
+		document.querySelectorAll('.btn-action-sm').forEach(btn => {
+			btn.addEventListener('click', function() {
+				const fileName = this.closest('tr').querySelector('.table-user-name').textContent;
+				alert(`Downloading "${fileName}"...\n\n(Demo — connect to backend for actual downloads.)`);
+			});
+		});
+	</script>
+</body>
+</html>

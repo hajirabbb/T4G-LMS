@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Staff Sign In — Tech4Girls LMS</title>
+	<meta name="description" content="Staff sign in to Tech4Girls LMS to manage courses, view student progress, and access your teaching dashboard.">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="img/Tech4Girls logo.png">
+	<link rel="apple-touch-icon" href="img/Tech4Girls logo.png">
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+
+	
+	<nav class="navbar" id="navbar">
+		<div class="navbar-inner">
+			<a href="index.html" class="navbar-logo" id="logo-link">
+				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+			</a>
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+			<ul class="navbar-links" id="navbar-links">
+				<li><a href="index.html" id="nav-home">Home</a></li>
+				<li><a href="index.html#features" id="nav-features">Features</a></li>
+				<li><a href="index.html#about" id="nav-about">About</a></li>
+				<li><a href="login.html" class="navbar-signin-btn" id="nav-signin">Sign In</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- ========== STAFF LOGIN ========== -->
+	<main class="login-main">
+		<div class="login-wrapper">
+			<!-- Left: Visual panel -->
+			<div class="login-visual">
+				<div class="login-visual-content">
+					<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+					<h2>Welcome Back, Staff</h2>
+					<p>Sign in to manage courses, track student progress, and access your teaching tools.</p>
+				</div>
+			</div>
+
+			<div class="login-form-panel">
+				<div class="login-form-header">
+					<h2>Staff Sign In</h2>
+					<p>Enter your credentials to access your staff account</p>
+				</div>
+
+				<form id="login-form" action="#" method="POST">
+					<div class="form-group">
+						<label class="form-label" for="email">Email Address</label>
+						<input type="email" class="form-input" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+					</div>
+
+					<div class="form-group">
+						<label class="form-label" for="password">Password</label>
+						<input type="password" class="form-input" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+					</div>
+
+					<div class="form-row">
+						<label class="form-remember">
+							<input type="checkbox" id="remember" name="remember">
+							Remember me
+						</label>
+						<a href="staff-forgot-password.html" class="form-forgot" id="forgot-password">Forgot password?</a>
+					</div>
+
+					<button type="submit" class="btn-login" id="login-submit">
+						Sign In
+					</button>
+				</form>
+
+				<p class="login-footer-text">
+					Don't have an account? <a href="#">Contact your administrator</a>
+				</p>
+			</div>
+		</div>
+	</main>
+	<footer class="footer" id="footer">
+		<div class="footer-inner">
+			<div class="footer-top">
+				<div class="footer-brand">
+					<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+					<div class="divider"></div>
+					<span>Learning Management System</span>
+				</div>
+				<div class="footer-links">
+					<a href="index.html">Home</a>
+					<a href="login.html">Sign In</a>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-partner">
+					<img src="img/hacsa logo.jpg" alt="HACSA Logo">
+					<span>HACSA Foundation</span>
+				</div>
+				<p class="footer-copy">&copy; 2026 Tech4Girls by HACSA Foundation. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		
+		const navbar = document.getElementById('navbar');
+		window.addEventListener('scroll', () => {
+			navbar.classList.toggle('scrolled', window.scrollY > 10);
+		});
+
+		
+		const navToggle = document.getElementById('nav-toggle');
+		const navLinks = document.getElementById('navbar-links');
+		navToggle.addEventListener('click', () => {
+			navLinks.classList.toggle('active');
+		});
+
+		
+		navLinks.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				navLinks.classList.remove('active');
+			});
+		});
+
+		
+		document.getElementById('login-form').addEventListener('submit', function(e) {
+			e.preventDefault();
+			const email = document.getElementById('email').value;
+			const btn = document.getElementById('login-submit');
+
+			btn.textContent = 'Signing in...';
+			btn.style.opacity = '0.7';
+			btn.style.pointerEvents = 'none';
+
+			setTimeout(() => {
+				alert(`Signing in as Staff...\nEmail: ${email}\n\n(This is a demo — connect to your backend to authenticate.)`);
+				btn.textContent = 'Sign In';
+				btn.style.opacity = '1';
+				btn.style.pointerEvents = 'auto';
+			}, 1200);
+		});
+	</script>
+</body>
+</html>
