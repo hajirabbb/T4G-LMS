@@ -1,0 +1,55 @@
+from sqlalchemy.orm import Session
+from auth import hash_password
+from models.student_model import Student
+from schemas.student_schema import StudentCreate
+import uuid
+
+
+def get_all_students(db: Session):
+    return db.query(Student).all()
+
+
+def get_student_by_id(db: Session, student_id: int):
+    return db.query(Student).filter(Student.id == student_id).first()
+
+
+def create_student(db: Session, student: StudentCreate):
+    db_student = Student(
+        first_name=student.first_name,
+        last_name=student.last_name,
+        email=student.email,
+        student_id=student.student_id,
+        track=student.track
+    )
+    db.add(db_student)
+    db.commit()
+    db.refresh(db_student)
+    return db_student
+
+
+def delete_student(db: Session, student_id: int):
+    student = db.query(Student).filter(Student.id == student_id).first()
+    if student:
+        db.delete(student)
+        db.commit()
+    return student
+
+
+def generate_student_id():
+    unique = uuid.uuid4().hex[:6].upper()
+    return f"TG-2026-{unique}"
+
+
+def create_student(db: Session, student: StudentCreate):
+    db_student = Student(
+        first_name=student.first_name,
+        last_name=student.last_name,
+        email=student.email,
+        student_id=generate_student_id(),
+        track=student.track,
+        password=hash_password("temp1234")
+    )
+    db.add(db_student)
+    db.commit()
+    db.refresh(db_student)
+    return db_student
