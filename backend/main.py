@@ -5,6 +5,9 @@ from routes.students_route import router as students_router
 from routes.courses_route import router as courses_router
 from routes.admin_route import router as admin_router
 from routes.staff_route import router as staff_router
+from routes.enrollment_route import router as enrollment_router
+from routes.material_route import router as material_router
+
 
 Base.metadata.create_all(bind=engine)
 
@@ -26,8 +29,10 @@ app.include_router(students_router)
 app.include_router(courses_router)
 app.include_router(admin_router)
 app.include_router(staff_router)
+app.include_router(enrollment_router)
+app.include_router(material_router)
 
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to Tech4Girls LMS API 🎉"}
+    return {"message": "Welcome to Tech4Girls LMS API"}
