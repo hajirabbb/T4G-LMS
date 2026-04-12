@@ -25,6 +25,12 @@ class StudentResponse(BaseModel):
     email: str
     student_id: str
     track: TrackEnum
-
+    
+    
     class Config:
         from_attributes = True
+
+
+class ChangePassword(BaseModel):
+    current_password: str
+    new_password: str

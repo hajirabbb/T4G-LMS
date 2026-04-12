@@ -21,11 +21,17 @@ class StaffResponse(BaseModel):
     email: str
     staff_id: str
     track: StaffTrackEnum
+    
+    
+class StaffLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+
+class ChangePassword(BaseModel):
+    current_password: str
+    new_password: str
 
     class Config:
         from_attributes = True
 
-
-class StaffLogin(BaseModel):
-    email: EmailStr
-    password: str

@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from auth import verify_password, create_access_token, hash_password, get_current_user
+from fastapi.security import OAuth2PasswordBearer
 from database import get_db
 from models.student_model import Student
 from services.student_service import (
@@ -8,8 +10,11 @@ from services.student_service import (
     create_student,
     delete_student
 )
-from schemas.student_schema import StudentCreate, StudentResponse, StudentLogin
+from schemas.student_schema import StudentCreate, StudentResponse, StudentLogin, ChangePassword
 from auth import verify_password, create_access_token
+
+
+
 
 router = APIRouter(prefix="/students", tags=["Students"])
 
@@ -62,3 +67,20 @@ def login_student(student: StudentLogin, db: Session = Depends(get_db)):
             "track": db_student.track
         }
     }
+
+
+@router.put("/change-password")
+def change_password(
+    passwords: ChangePassword,
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    student = db.query(Student).filter(Student.email == current_user).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Student not found")
+    if not verify_password(passwords.current_password, student.password):
+        raise HTTPException(
+            status_code=401, detail="Current password is incorrect")
+    student.password = hash_password(passwords.new_password)
+    db.commit()
+    return {"message": "Password changed successfully"}

@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
+from models.staff_model import Staff
 from services.staff_service import (
     get_all_staff,
     get_staff_by_id,
@@ -8,8 +9,8 @@ from services.staff_service import (
     delete_staff,
     get_staff_by_email
 )
-from schemas.staff_schema import StaffCreate, StaffResponse, StaffLogin
-from auth import verify_password, create_access_token
+from schemas.staff_schema import StaffCreate, StaffResponse, StaffLogin, ChangePassword
+from auth import verify_password, create_access_token, hash_password, get_current_user
 
 router = APIRouter(prefix="/staff", tags=["Staff"])
 
@@ -62,3 +63,20 @@ def remove_staff(staff_id: str, db: Session = Depends(get_db)):
     if not staff:
         raise HTTPException(status_code=404, detail="Staff not found")
     return {"message": "Staff deleted successfully"}
+
+
+@router.put("/change-password")
+def change_staff_password(
+    passwords: ChangePassword,
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    staff = db.query(Staff).filter(Staff.email == current_user).first()
+    if not staff:
+        raise HTTPException(status_code=404, detail="Staff not found")
+    if not verify_password(passwords.current_password, staff.password):
+        raise HTTPException(
+            status_code=401, detail="Current password is incorrect")
+    staff.password = hash_password(passwords.new_password)
+    db.commit()
+    return {"message": "Password changed successfully"}
