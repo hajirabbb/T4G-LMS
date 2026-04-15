@@ -19,9 +19,9 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://t4g-lms.pages.dev/",
-                   "https://staff-t4g-lms.pages.dev/",
-                   "https://t4g-lms.pages.dev/"],
+    allow_origins=["https://t4g-lms.pages.dev",
+                   "https://staff-t4g-lms.pages.dev",
+                   "https://t4g-lms.pages.dev"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
