@@ -10,7 +10,8 @@ from services.student_service import (
     create_student,
     delete_student
 )
-from schemas.student_schema import StudentCreate, StudentResponse, StudentLogin, ChangePassword
+from schemas.student_schema import StudentCreate, StudentResponse, StudentLogin, ChangePassword, ForgotPassword, ResetPassword
+from pydantic import EmailStr
 from auth import verify_password, create_access_token
 
 
@@ -86,3 +87,25 @@ def change_password(
     student.is_default_password = False
     db.commit()
     return {"message": "Password changed successfully"}
+
+
+@router.post("/forgot-password")
+def forgot_password(data: ForgotPassword, db: Session = Depends(get_db)):
+    student = db.query(Student).filter(Student.email == data.email).first()
+    if not student:
+        raise HTTPException(
+            status_code=404, detail="No account found with this email")
+    return {"message": "Email found", "email": data.email}
+
+
+@router.post("/reset-password")
+def reset_password(data: ResetPassword, db: Session = Depends(get_db)):
+    student = db.query(Student).filter(Student.email == data.email).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Student not found")
+    student.password = hash_password(data.new_password)
+    student.is_default_password = False
+    db.commit()
+    return {"message": "Password reset successfully"}
+
+

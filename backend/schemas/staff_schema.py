@@ -35,3 +35,11 @@ class ChangePassword(BaseModel):
     class Config:
         from_attributes = True
 
+
+class ForgotPassword(BaseModel):
+    email: EmailStr
+
+
+class ResetPassword(BaseModel):
+    email: EmailStr
+    new_password: str

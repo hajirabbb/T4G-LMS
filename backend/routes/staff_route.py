@@ -9,7 +9,8 @@ from services.staff_service import (
     delete_staff,
     get_staff_by_email
 )
-from schemas.staff_schema import StaffCreate, StaffResponse, StaffLogin, ChangePassword
+from schemas.staff_schema import StaffCreate, StaffResponse, StaffLogin, ChangePassword, ForgotPassword, ResetPassword
+
 from auth import verify_password, create_access_token, hash_password, get_current_user
 
 router = APIRouter(prefix="/staff", tags=["Staff"])
@@ -82,3 +83,23 @@ def change_staff_password(
     staff.is_default_password = False
     db.commit()
     return {"message": "Password changed successfully"}
+
+
+@router.post("/forgot-password")
+def staff_forgot_password(data: ForgotPassword, db: Session = Depends(get_db)):
+    staff = db.query(Staff).filter(Staff.email == data.email).first()
+    if not staff:
+        raise HTTPException(
+            status_code=404, detail="No account found with this email")
+    return {"message": "Email found", "email": data.email}
+
+
+@router.post("/reset-password")
+def staff_reset_password(data: ResetPassword, db: Session = Depends(get_db)):
+    staff = db.query(Staff).filter(Staff.email == data.email).first()
+    if not staff:
+        raise HTTPException(status_code=404, detail="Staff not found")
+    staff.password = hash_password(data.new_password)
+    staff.is_default_password = False
+    db.commit()
+    return {"message": "Password reset successfully"}

@@ -34,3 +34,12 @@ class StudentResponse(BaseModel):
 class ChangePassword(BaseModel):
     current_password: str
     new_password: str
+
+
+class ForgotPassword(BaseModel):
+    email: EmailStr
+
+
+class ResetPassword(BaseModel):
+    email: EmailStr
+    new_password: str
