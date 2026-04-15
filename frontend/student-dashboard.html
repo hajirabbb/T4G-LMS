@@ -20,6 +20,23 @@
     <link rel="stylesheet" href="css/dashboard.css" />
   </head>
   <body class="dashboard-page">
+ <!-- Default Password Banner -->
+<div class="default-password-banner" id="default-password-banner" style="display:none; background: #fff3cd; border-left: 4px solid #f0ad4e; padding: 14px 24px; align-items:center; justify-content:space-between; gap:16px;">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f0ad4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span style="color:#856404; font-size:14px; font-weight:500;">
+            You are using the default password <strong>temp1234</strong>. Please change it to secure your account.
+        </span>
+    </div>
+    <button onclick="openChangePassword()" style="background:#f0ad4e; color:#fff; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:600; white-space:nowrap;">
+        Change Password
+    </button>
+</div>
+
     <nav class="navbar" id="navbar">
       <div class="navbar-inner">
         <a href="index.html" class="navbar-logo" id="logo-link">
@@ -195,8 +212,69 @@
         </div>
       </div>
     </main>
-
-    <footer class="footer" id="footer">
+    <div class="modal-overlay" id="change-password-modal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3>Change Your Password</h3>
+            <button class="modal-close" onclick="closeChangePassword()">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="dashboard-form" id="change-password-form">
+                <div class="form-group full-width">
+                    <label class="form-label" for="current-password">Current Password</label>
+                    <div style="position: relative;">
+                        <input type="password" class="form-input" id="current-password" placeholder="Enter current password" required style="padding-right: 44px;" />
+                        <button type="button" onclick="togglePassword('current-password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label class="form-label" for="new-password">New Password</label>
+                    <div style="position: relative;">
+                        <input type="password" class="form-input" id="new-password" placeholder="Enter new password" required style="padding-right: 44px;" />
+                        <button type="button" onclick="togglePassword('new-password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label class="form-label" for="confirm-password">Confirm New Password</label>
+                    <div style="position: relative;">
+                        <input type="password" class="form-input" id="confirm-password" placeholder="Confirm new password" required style="padding-right: 44px;" />
+                        <button type="button" onclick="togglePassword('confirm-password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-action btn-action-primary">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Change Password
+                    </button>
+                    <button type="button" class="btn-action btn-action-secondary" onclick="closeChangePassword()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand-col">
@@ -240,7 +318,17 @@
     </footer>
 
     <script>
-      const BASE_URL = "http://localhost:8000";
+      function togglePassword(inputId, btn) {
+        const input = document.getElementById(inputId);
+        if (input.type === 'password') {
+          input.type = 'text';
+          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        } else {
+          input.type = 'password';
+          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+        }
+      }
+      const BASE_URL = "https://t4g-lms.onrender.com";
       const token = localStorage.getItem("student_token");
       const studentUser = JSON.parse(localStorage.getItem("student_user"));
 
@@ -259,7 +347,7 @@
 				<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
 				<path d="M6 12v5c3 3 10 3 12 0v-5"/>
 			</svg>
-			Student — ${studentUser.track} Track
+			Student ${studentUser.track} Track
 		`;
 
       const navbar = document.getElementById("navbar");
@@ -452,6 +540,89 @@
       }
 
       loadCourses();
+
+
+
+      // Show banner only if still on default password
+if (studentUser.is_default_password) {
+    document.getElementById('default-password-banner').style.display = 'flex'
+} else {
+    document.getElementById('default-password-banner').style.display = 'none'
+}
+
+function openChangePassword() {
+    document.getElementById('change-password-modal').classList.add('open')
+    document.body.style.overflow = 'hidden'
+}
+
+function closeChangePassword() {
+    // Only allow closing if password has been changed
+    if (!studentUser.is_default_password) {
+        document.getElementById('change-password-modal').classList.remove('open')
+        document.body.style.overflow = ''
+        document.getElementById('change-password-form').reset()
+    } else {
+        alert('Please change your default password first to secure your account!')
+    }
+}
+
+document.getElementById('change-password-form').addEventListener('submit', async function(e) {
+    e.preventDefault()
+    const currentPassword = document.getElementById('current-password').value
+    const newPassword = document.getElementById('new-password').value
+    const confirmPassword = document.getElementById('confirm-password').value
+
+    if (newPassword !== confirmPassword) {
+        alert('New passwords do not match!')
+        return
+    }
+    if (newPassword.length < 6) {
+        alert('New password must be at least 6 characters!')
+        return
+    }
+    if (newPassword === 'temp1234') {
+        alert('Please choose a different password from the default one!')
+        return
+    }
+
+    const res = await fetch(`${BASE_URL}/students/change-password`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            current_password: currentPassword,
+            new_password: newPassword
+        })
+    })
+    if (res.ok) {
+    // Update localStorage so banner disappears immediately
+    studentUser.is_default_password = false
+    localStorage.setItem('student_user', JSON.stringify(studentUser))
+    
+    // Hide the banner immediately
+    document.getElementById('default-password-banner').style.display = 'none'
+    
+    // Close the modal
+    document.getElementById('change-password-modal').classList.remove('open')
+    document.body.style.overflow = ''
+    document.getElementById('change-password-form').reset()
+    
+    alert('Password changed successfully! ')
+}
+
+    else {
+        const data = await res.json()
+        alert(data.detail || 'Failed to change password')
+    }
+})
+
+// Auto open modal if default password
+if (studentUser.is_default_password) {
+    openChangePassword()
+}
     </script>
   </body>
 </html>
+
