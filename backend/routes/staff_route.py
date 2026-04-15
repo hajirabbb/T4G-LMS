@@ -52,7 +52,8 @@ def login_staff(staff: StaffLogin, db: Session = Depends(get_db)):
             "first_name": db_staff.first_name,
             "last_name": db_staff.last_name,
             "email": db_staff.email,
-            "track": db_staff.track
+            "track": db_staff.track,
+            "is_default_password": db_staff.is_default_password
         }
     }
 
@@ -78,5 +79,6 @@ def change_staff_password(
         raise HTTPException(
             status_code=401, detail="Current password is incorrect")
     staff.password = hash_password(passwords.new_password)
+    staff.is_default_password = False
     db.commit()
     return {"message": "Password changed successfully"}

@@ -64,7 +64,8 @@ def login_student(student: StudentLogin, db: Session = Depends(get_db)):
             "last_name": db_student.last_name,
             "email": db_student.email,
             "student_id": db_student.student_id,
-            "track": db_student.track
+            "track": db_student.track,
+            "is_default_password": db_student.is_default_password
         }
     }
 
@@ -82,5 +83,6 @@ def change_password(
         raise HTTPException(
             status_code=401, detail="Current password is incorrect")
     student.password = hash_password(passwords.new_password)
+    student.is_default_password = False
     db.commit()
     return {"message": "Password changed successfully"}

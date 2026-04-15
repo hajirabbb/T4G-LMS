@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Enum
+from sqlalchemy import Column, String, Enum, Boolean
 from sqlalchemy.dialects.sqlite import TEXT
 from database import Base
 import enum
@@ -20,3 +20,4 @@ class Staff(Base):
     staff_id = Column(String(20), unique=True, nullable=False)
     track = Column(Enum(StaffTrackEnum), nullable=False)
     password = Column(String(255), nullable=False)
+    is_default_password = Column(Boolean, default=True)
