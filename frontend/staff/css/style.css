@@ -65,7 +65,7 @@ body {
   color: var(--gray-700);
   background: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 a {
@@ -111,9 +111,7 @@ h6 {
 }
 
 
-/* ============================================================
-   NAVBAR
-   ============================================================ */
+
 .navbar {
   position: sticky;
   top: 0;
@@ -123,6 +121,7 @@ h6 {
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: all var(--duration) var(--ease);
+
 }
 
 .navbar.scrolled {

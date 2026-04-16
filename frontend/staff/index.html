@@ -20,28 +20,45 @@
 <body class="login-page">
 
 	
+	
 	<nav class="navbar" id="navbar">
 		<div class="navbar-inner">
+
+			<!-- Logo -->
 			<a href="index.html" class="navbar-logo" id="logo-link">
 				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+				<span class="logo-text">Tech4Girls</span>
 			</a>
-			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<line x1="3" y1="6" x2="21" y2="6"></line>
-					<line x1="3" y1="12" x2="21" y2="12"></line>
-					<line x1="3" y1="18" x2="21" y2="18"></line>
-				</svg>
-			</button>
+
+			<!-- Desktop nav links (also becomes the sidebar on mobile) -->
 			<ul class="navbar-links" id="navbar-links">
-				<li><a href="index.html" id="nav-home">Home</a></li>
-				<li><a href="index.html#features" id="nav-features">Features</a></li>
-				<li><a href="index.html#about" id="nav-about">About</a></li>
-				<li><a href="login.html" class="navbar-signin-btn" id="nav-signin">Sign In</a></li>
+					<a href="index.html" class="navbar-signin-btn" id="nav-signin">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+							<polyline points="10 17 15 12 10 7" />
+							<line x1="15" y1="12" x2="3" y2="12" />
+						</svg>
+						Sign In
+					</a>
+				</li>
 			</ul>
+
+			<!-- Hamburger (hidden on desktop) -->
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
+
 		</div>
+
+		<!-- Dark overlay behind sidebar -->
+		<div class="nav-overlay" id="nav-overlay"></div>
 	</nav>
 
-	<!-- ========== STAFF LOGIN ========== -->
+
+
 	<main class="login-main">
 		<div class="login-wrapper">
 			<!-- Left: Visual panel -->
@@ -164,7 +181,7 @@ document.getElementById('login-form').addEventListener('submit', async function(
     btn.style.pointerEvents = 'none'
 
     try {
-        const response = await fetch(`${BASE_URL}/staff/login`, {
+        const response = await fetch(`${BASE_URL}/staff/index`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })

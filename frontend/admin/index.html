@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Sign In Tech4Girls LMS</title>
     <meta
       name="description"
       content="Administrator sign in to Tech4Girls LMS to manage the platform, users, and system settings."
-    >
+    />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="img/Tech4Girls logo.png" >
-    <link rel="apple-touch-icon" href="img/Tech4Girls logo.png" >
+    <link rel="icon" type="image/png" href="img/Tech4Girls logo.png" />
+    <link rel="apple-touch-icon" href="img/Tech4Girls logo.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,41 +24,47 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="login-page">
-    <nav class="navbar" id="navbar">
-      <div class="navbar-inner">
-        <a href="index.html" class="navbar-logo" id="logo-link">
-          <img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo" >
-        </a>
-        <button
-          class="nav-toggle"
-          id="nav-toggle"
-          aria-label="Toggle navigation"
-        >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-        <ul class="navbar-links" id="navbar-links">
-          <li><a href="index.html" id="nav-home">Home</a></li>
-          <li><a href="index.html#features" id="nav-features">Features</a></li>
-          <li><a href="index.html#about" id="nav-about">About</a></li>
-          <li>
-            <a href="login.html" class="navbar-signin-btn" id="nav-signin"
-              >Sign In</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
+    
+	
+
+		<nav class="navbar" id="navbar">
+		<div class="navbar-inner">
+
+			<!-- Logo -->
+			<a href="index.html" class="navbar-logo" id="logo-link">
+				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+				<span class="logo-text">Tech4Girls</span>
+			</a>
+
+			<!-- Desktop nav links (also becomes the sidebar on mobile) -->
+			<ul class="navbar-links" id="navbar-links">
+					<a href="index.html" class="navbar-signin-btn" id="nav-signin">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+							<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+							<polyline points="10 17 15 12 10 7" />
+							<line x1="15" y1="12" x2="3" y2="12" />
+						</svg>
+						Sign In
+					</a>
+				</li>
+			</ul>
+
+			<!-- Hamburger (hidden on desktop) -->
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
+
+		</div>
+
+		<!-- Dark overlay behind sidebar -->
+		<div class="nav-overlay" id="nav-overlay"></div>
+	</nav>
+
+
+
 
     <main class="login-main">
       <div class="login-wrapper">
@@ -96,7 +102,7 @@
 
             <div class="form-group">
               <label class="form-label" for="password">Password</label>
-              <div style="position: relative;">
+              <div style="position: relative">
                 <input
                   type="password"
                   class="form-input"
@@ -105,12 +111,35 @@
                   placeholder="Enter your password"
                   required
                   autocomplete="current-password"
-                  style="padding-right: 44px;"
+                  style="padding-right: 44px"
                 />
-                <button type="button" onclick="togglePassword('password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
+                <button
+                  type="button"
+                  onclick="togglePassword('password', this)"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 4px;
+                    color: #6b7280;
+                  "
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
                   </svg>
                 </button>
               </div>
@@ -158,12 +187,14 @@
     <script>
       function togglePassword(inputId, btn) {
         const input = document.getElementById(inputId);
-        if (input.type === 'password') {
-          input.type = 'text';
-          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerHTML =
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
         } else {
-          input.type = 'password';
-          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+          input.type = "password";
+          btn.innerHTML =
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
         }
       }
       const navbar = document.getElementById("navbar");
@@ -199,7 +230,7 @@
           btn.style.pointerEvents = "none";
 
           try {
-            const response = await fetch(`${BASE_URL}/admin/login`, {
+            const response = await fetch(`${BASE_URL}/admin/index`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ email, password }),

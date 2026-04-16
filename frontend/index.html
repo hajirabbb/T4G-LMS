@@ -8,38 +8,34 @@
 	<meta name="description"
 		content="Tech4Girls LMS provides a dynamic, interactive learning platform for young women to learn, grow, and excel in technology education.">
 
-	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="img/Tech4Girls logo.png">
 	<link rel="apple-touch-icon" href="img/Tech4Girls logo.png">
 
-	<!-- Fonts: Inter + Outfit -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>/
+<body>
 
 	<nav class="navbar" id="navbar">
 		<div class="navbar-inner">
+
+			<!-- Logo -->
 			<a href="index.html" class="navbar-logo" id="logo-link">
 				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
 				<span class="logo-text">Tech4Girls</span>
 			</a>
-			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-			</button>
+
+			<!-- Desktop nav links (also becomes the sidebar on mobile) -->
 			<ul class="navbar-links" id="navbar-links">
 				<li><a href="index.html" class="active-link" id="nav-home">Home</a></li>
 				<li><a href="#features" id="nav-features">Features</a></li>
 				<li><a href="#about" id="nav-about">About</a></li>
-				<li><a href="login.html" class="navbar-signin-btn" id="nav-signin">
+				<li>
+					<a href="login.html" class="navbar-signin-btn" id="nav-signin">
 						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
 							stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
@@ -47,10 +43,23 @@
 							<line x1="15" y1="12" x2="3" y2="12" />
 						</svg>
 						Sign In
-					</a></li>
+					</a>
+				</li>
 			</ul>
+
+			<!-- Hamburger (hidden on desktop) -->
+			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</button>
+
 		</div>
+
+		<!-- Dark overlay behind sidebar -->
+		<div class="nav-overlay" id="nav-overlay"></div>
 	</nav>
+
 	<section class="hero" id="hero">
 		<div class="hero-bg-shapes">
 			<div class="hero-shape shape-1"></div>
@@ -104,8 +113,7 @@
 			<div class="section-header animate-on-scroll">
 				<span class="section-label">Platform Features</span>
 				<h2 class="section-title">Everything You Need to <span class="text-accent">Learn & Grow</span></h2>
-				<p class="section-desc">Tech4Girls LMS brings together all the tools needed to deliver world-class
-					technology education.</p>
+				<p class="section-desc">Tech4Girls LMS brings together all the tools needed to deliver world-class technology education.</p>
 			</div>
 			<div class="features-grid">
 				<div class="feature-card animate-on-scroll" id="feature-courses">
@@ -120,10 +128,8 @@
 						</div>
 					</div>
 					<h3>Course Management</h3>
-					<p>Create and organize learning materials into simple, structured courses with rich multimedia
-						content.</p>
+					<p>Create and organize learning materials into simple, structured courses with rich multimedia content.</p>
 				</div>
-				<!-- Card 2 -->
 				<div class="feature-card animate-on-scroll anim-delay-1" id="feature-sessions">
 					<div class="feature-icon-wrap">
 						<div class="feature-icon icon-sessions">
@@ -138,7 +144,6 @@
 					<h3>Live Sessions & Events</h3>
 					<p>Host workshops, classes, and community sessions with simple scheduling and reminders.</p>
 				</div>
-				<!-- Card 3 -->
 				<div class="feature-card animate-on-scroll anim-delay-2" id="feature-tracking">
 					<div class="feature-icon-wrap">
 						<div class="feature-icon icon-tracking">
@@ -154,25 +159,24 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="about-section" id="about">
 		<div class="container">
-				<div class="about-text-col animate-on-scroll anim-delay-2">
-					<span class="section-label">About Us</span>
-					<h2>What is <span class="text-accent">Tech4Girls?</span></h2>
-					<p>
-						Tech4Girls LMS is a learning platform designed to empower Tech4Girls student through technology
-						education. It provides a centralized space where educators can deliver courses and support
-						learners on their journey.
-					</p>
-					<p>
-						We help bridge the gap between skills and opportunity in the digital world, one student at a
-						time.
-					</p>
-						
-				</div>
+			<div class="about-text-col animate-on-scroll anim-delay-2">
+				<span class="section-label">About Us</span>
+				<h2>What is <span class="text-accent">Tech4Girls?</span></h2>
+				<p>
+					Tech4Girls LMS is a learning platform designed to empower Tech4Girls student through technology
+					education. It provides a centralized space where educators can deliver courses and support
+					learners on their journey.
+				</p>
+				<p>
+					We help bridge the gap between skills and opportunity in the digital world, one student at a time.
+				</p>
 			</div>
 		</div>
 	</section>
+
 	<footer class="footer" id="footer">
 		<div class="footer-inner">
 			<div class="footer-top">
@@ -184,8 +188,7 @@
 							<span class="footer-brand-desc">Learning Management System</span>
 						</div>
 					</div>
-					<p class="footer-tagline">Empowering young women through technology education, one student at a
-						time.</p>
+					<p class="footer-tagline">Empowering young women through technology education, one student at a time.</p>
 				</div>
 				<div class="footer-nav-col">
 					<h4 class="footer-nav-title">Quick Links</h4>
@@ -218,48 +221,61 @@
 	</button>
 
 	<script>
+		// ── Navbar scroll shadow ──────────────────────────────────
 		const navbar = document.getElementById('navbar');
 		window.addEventListener('scroll', () => {
 			navbar.classList.toggle('scrolled', window.scrollY > 10);
 		});
 
-	
+		// ── Sidebar drawer ────────────────────────────────────────
 		const navToggle = document.getElementById('nav-toggle');
-		const navLinks = document.getElementById('navbar-links');
+		const navLinks  = document.getElementById('navbar-links');
+		const navOverlay = document.getElementById('nav-overlay');
+
+		function openNav() {
+			navToggle.classList.add('active');
+			navLinks.classList.add('active');
+			navOverlay.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeNav() {
+			navToggle.classList.remove('active');
+			navLinks.classList.remove('active');
+			navOverlay.classList.remove('active');
+			document.body.style.overflow = '';
+		}
+
 		navToggle.addEventListener('click', () => {
-			navToggle.classList.toggle('active');
-			navLinks.classList.toggle('active');
+			navLinks.classList.contains('active') ? closeNav() : openNav();
 		});
 
+		navOverlay.addEventListener('click', closeNav);
 
 		navLinks.querySelectorAll('a').forEach(link => {
-			link.addEventListener('click', () => {
-				navToggle.classList.remove('active');
-				navLinks.classList.remove('active');
-			});
+			link.addEventListener('click', closeNav);
 		});
 
-	
+		// ── Smooth scroll for anchor links ────────────────────────
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 			anchor.addEventListener('click', function (e) {
 				e.preventDefault();
 				const target = document.querySelector(this.getAttribute('href'));
 				if (target) {
-					const offset = 80;
-					const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+					const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
 					window.scrollTo({ top, behavior: 'smooth' });
 				}
 			});
 		});
 
-	
+		// ── Active nav link on scroll ─────────────────────────────
 		const sections = document.querySelectorAll('section[id]');
-		const navItems = document.querySelectorAll('.navbar-links li a:not(.navbar-signin-btn)');
+		const navItems  = document.querySelectorAll('.navbar-links li a:not(.navbar-signin-btn)');
+
 		window.addEventListener('scroll', () => {
 			let current = '';
 			sections.forEach(section => {
-				const top = section.offsetTop - 100;
-				if (window.scrollY >= top) {
+				if (window.scrollY >= section.offsetTop - 100) {
 					current = section.getAttribute('id');
 				}
 			});
@@ -272,8 +288,7 @@
 			});
 		});
 
-
-		const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -60px 0px' };
+		// ── Animate on scroll ─────────────────────────────────────
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
@@ -281,38 +296,11 @@
 					observer.unobserve(entry.target);
 				}
 			});
-		}, observerOptions);
+		}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-		document.querySelectorAll('.animate-on-scroll').forEach(el => {
-			observer.observe(el);
-		});
+		document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-		const statNumbers = document.querySelectorAll('.stat-number[data-target]');
-		const countObserver = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const el = entry.target;
-					const target = parseInt(el.dataset.target);
-					const duration = 2000;
-					const start = performance.now();
-
-					function step(now) {
-						const elapsed = now - start;
-						const progress = Math.min(elapsed / duration, 1);
-						const eased = 1 - Math.pow(1 - progress, 3);
-						const suffix = el.closest('.stat-item').querySelector('.stat-label').textContent.includes('%') ? '%' : '+';
-						el.textContent = Math.round(target * eased) + suffix;
-						if (progress < 1) requestAnimationFrame(step);
-					}
-					requestAnimationFrame(step);
-					countObserver.unobserve(el);
-				}
-			});
-		}, { threshold: 0.5 });
-
-		statNumbers.forEach(el => countObserver.observe(el));
-
-	
+		// ── Back to top ───────────────────────────────────────────
 		const backToTop = document.getElementById('back-to-top');
 		window.addEventListener('scroll', () => {
 			backToTop.classList.toggle('visible', window.scrollY > 500);
@@ -320,25 +308,7 @@
 		backToTop.addEventListener('click', () => {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		});
-
-		
-		const badges = document.querySelectorAll('.hero-badge');
-		const badgeObserver = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					badges.forEach((badge, i) => {
-						setTimeout(() => {
-							badge.classList.add('visible');
-						}, 400 + i * 200);
-					});
-					badgeObserver.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.3 });
-
-		const heroImageCol = document.querySelector('.hero-image-col');
-		if (heroImageCol) badgeObserver.observe(heroImageCol);
 	</script>
-</body>
 
+</body>
 </html>
