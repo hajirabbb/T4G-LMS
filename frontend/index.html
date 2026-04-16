@@ -24,6 +24,11 @@
 
 <body>/
 
+	<!-- Page Spin Loader -->
+	<div class="page-spin-loader" id="page-spin-loader">
+		<div class="loader-spinner"></div>
+	</div>
+
 	<nav class="navbar" id="navbar">
 		<div class="navbar-inner">
 			<a href="index.html" class="navbar-logo" id="logo-link">
@@ -56,6 +61,15 @@
 			<div class="hero-shape shape-1"></div>
 			<div class="hero-shape shape-2"></div>
 			<div class="hero-shape shape-3"></div>
+		</div>
+		<!-- Spinning orbital rings -->
+		<div class="hero-orbital-container">
+			<div class="hero-orbital hero-orbital--1 visible"></div>
+			<div class="hero-orbital hero-orbital--2 visible"></div>
+			<div class="hero-orbital hero-orbital--3 visible"></div>
+			<div class="orbital-dot orbital-dot--1"></div>
+			<div class="orbital-dot orbital-dot--2"></div>
+			<div class="orbital-dot orbital-dot--3"></div>
 		</div>
 		<div class="hero-inner">
 			<div class="hero-text animate-on-scroll">
@@ -99,6 +113,15 @@
 		</div>
 	</section>
 
+	<!-- Section spinning divider -->
+	<div class="section-spin-accent">
+		<div class="section-spin-line"></div>
+		<div class="spin-diamond"></div>
+		<div class="spin-diamond"></div>
+		<div class="spin-diamond"></div>
+		<div class="section-spin-line"></div>
+	</div>
+
 	<section class="features-section" id="features">
 		<div class="container">
 			<div class="section-header animate-on-scroll">
@@ -109,6 +132,7 @@
 			</div>
 			<div class="features-grid">
 				<div class="feature-card animate-on-scroll" id="feature-courses">
+					<div class="feature-card-spin-border"></div>
 					<div class="feature-icon-wrap">
 						<div class="feature-icon icon-courses">
 							<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -125,6 +149,7 @@
 				</div>
 				<!-- Card 2 -->
 				<div class="feature-card animate-on-scroll anim-delay-1" id="feature-sessions">
+					<div class="feature-card-spin-border"></div>
 					<div class="feature-icon-wrap">
 						<div class="feature-icon icon-sessions">
 							<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -140,6 +165,7 @@
 				</div>
 				<!-- Card 3 -->
 				<div class="feature-card animate-on-scroll anim-delay-2" id="feature-tracking">
+					<div class="feature-card-spin-border"></div>
 					<div class="feature-icon-wrap">
 						<div class="feature-icon icon-tracking">
 							<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -154,23 +180,38 @@
 			</div>
 		</div>
 	</section>
-	<section class="about-section" id="about">
+	<!-- Section spinning divider -->
+	<div class="section-spin-accent">
+		<div class="section-spin-line"></div>
+		<div class="spin-diamond"></div>
+		<div class="spin-diamond"></div>
+		<div class="spin-diamond"></div>
+		<div class="section-spin-line"></div>
+	</div>
+
+	<section class="about-section" id="about" style="position: relative;">
+		<!-- Spinning background shapes -->
+		<div class="about-spin-shapes">
+			<div class="about-spin-shape about-spin-shape--1"></div>
+			<div class="about-spin-shape about-spin-shape--2"></div>
+			<div class="about-spin-shape about-spin-shape--3"></div>
+		</div>
 		<div class="container">
-				<div class="about-text-col animate-on-scroll anim-delay-2">
-					<span class="section-label">About Us</span>
-					<h2>What is <span class="text-accent">Tech4Girls?</span></h2>
-					<p>
-						Tech4Girls LMS is a learning platform designed to empower Tech4Girls student through technology
-						education. It provides a centralized space where educators can deliver courses and support
-						learners on their journey.
-					</p>
-					<p>
-						We help bridge the gap between skills and opportunity in the digital world, one student at a
-						time.
-					</p>
-						
-				</div>
+			<div class="about-text-col animate-on-scroll anim-delay-2">
+				<span class="section-label">About Us</span>
+				<h2>What is <span class="text-accent">Tech4Girls?</span></h2>
+				<p>
+					Tech4Girls LMS is a learning platform designed to empower Tech4Girls student through technology
+					education. It provides a centralized space where educators can deliver courses and support
+					learners on their journey.
+				</p>
+				<p>
+					We help bridge the gap between skills and opportunity in the digital world, one student at a
+					time.
+				</p>
+
 			</div>
+		</div>
 		</div>
 	</section>
 	<footer class="footer" id="footer">
@@ -205,7 +246,11 @@
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p class="footer-copy">&copy; 2026 Tech4Girls by HACSA Foundation. All rights reserved.</p>
+				<p class="footer-copy">
+					&copy; 2026 Tech4Girls by HACSA Foundation
+					<span class="footer-spin-ornament"><span class="spin-circle"></span></span>
+					All rights reserved.
+				</p>
 			</div>
 		</div>
 	</footer>
@@ -223,7 +268,7 @@
 			navbar.classList.toggle('scrolled', window.scrollY > 10);
 		});
 
-	
+
 		const navToggle = document.getElementById('nav-toggle');
 		const navLinks = document.getElementById('navbar-links');
 		navToggle.addEventListener('click', () => {
@@ -239,7 +284,7 @@
 			});
 		});
 
-	
+
 		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 			anchor.addEventListener('click', function (e) {
 				e.preventDefault();
@@ -252,7 +297,7 @@
 			});
 		});
 
-	
+
 		const sections = document.querySelectorAll('section[id]');
 		const navItems = document.querySelectorAll('.navbar-links li a:not(.navbar-signin-btn)');
 		window.addEventListener('scroll', () => {
@@ -312,7 +357,7 @@
 
 		statNumbers.forEach(el => countObserver.observe(el));
 
-	
+
 		const backToTop = document.getElementById('back-to-top');
 		window.addEventListener('scroll', () => {
 			backToTop.classList.toggle('visible', window.scrollY > 500);
@@ -321,7 +366,7 @@
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		});
 
-		
+
 		const badges = document.querySelectorAll('.hero-badge');
 		const badgeObserver = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
@@ -338,6 +383,15 @@
 
 		const heroImageCol = document.querySelector('.hero-image-col');
 		if (heroImageCol) badgeObserver.observe(heroImageCol);
+
+		// Page spin loader — hide after content loads
+		window.addEventListener('load', () => {
+			const loader = document.getElementById('page-spin-loader');
+			if (loader) {
+				setTimeout(() => loader.classList.add('hidden'), 400);
+				setTimeout(() => loader.remove(), 1000);
+			}
+		});
 	</script>
 </body>
 
