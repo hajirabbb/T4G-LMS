@@ -37,6 +37,27 @@ def create_staff(db: Session, staff: StaffCreate):
     return db_staff
 
 
+def search_staff(db: Session, q: str):
+    """
+    Search staff by first name, last name, email, staff ID, or track.
+    Case-insensitive, partial match.
+    """
+    keyword = f"%{q.strip()}%"
+    return (
+        db.query(Staff)
+        .filter(
+            or_(
+                Staff.first_name.ilike(keyword),
+                Staff.last_name.ilike(keyword),
+                Staff.email.ilike(keyword),
+                Staff.staff_id.ilike(keyword),
+                Staff.track.ilike(keyword),
+            )
+        )
+        .all()
+    )
+
+
 def delete_staff(db: Session, staff_id: str):
     staff = db.query(Staff).filter(Staff.id == staff_id).first()
     if staff:

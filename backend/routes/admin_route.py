@@ -42,3 +42,4 @@ def login_admin(admin: AdminLogin, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Incorrect password")
     token = create_access_token(data={"sub": db_admin.email})
     return {"access_token": token, "token_type": "bearer"}
+

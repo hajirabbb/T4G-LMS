@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from auth import verify_password, create_access_token, hash_password, get_current_user
 from fastapi.security import OAuth2PasswordBearer
@@ -9,6 +9,7 @@ from services.student_service import (
     get_student_by_id,
     create_student,
     delete_student
+    search_students
 )
 from schemas.student_schema import StudentCreate, StudentResponse, StudentLogin, ChangePassword, ForgotPassword, ResetPassword
 from pydantic import EmailStr
@@ -108,4 +109,12 @@ def reset_password(data: ResetPassword, db: Session = Depends(get_db)):
     db.commit()
     return {"message": "Password reset successfully"}
 
+
+@router.get("/search")
+def search_students_route(
+    q: str = Query(..., min_length=1),
+    db: Session = Depends(get_db)
+):
+    results = search_students(db, q)
+    return results
 

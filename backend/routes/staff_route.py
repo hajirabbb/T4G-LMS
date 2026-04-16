@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from database import get_db
 from models.staff_model import Staff
@@ -8,6 +8,7 @@ from services.staff_service import (
     create_staff,
     delete_staff,
     get_staff_by_email
+    search_staff
 )
 from schemas.staff_schema import StaffCreate, StaffResponse, StaffLogin, ChangePassword, ForgotPassword, ResetPassword
 
@@ -58,6 +59,14 @@ def login_staff(staff: StaffLogin, db: Session = Depends(get_db)):
         }
     }
 
+
+@router.get("/search")
+def search_staff_route(
+    q: str = Query(..., min_length=1),
+    db: Session = Depends(get_db)
+):
+    results = search_staff(db, q)
+    return results
 
 @router.delete("/{staff_id}")
 def remove_staff(staff_id: str, db: Session = Depends(get_db)):

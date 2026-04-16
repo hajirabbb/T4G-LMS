@@ -29,6 +29,28 @@ def get_student_by_id(db: Session, student_id: int):
     return db.query(Student).filter(Student.id == student_id).first()
 
 
+ 
+def search_students(db: Session, q: str):
+    """
+    Search students by first name, last name, email, student ID, or track.
+    Case-insensitive, partial match.
+    """
+    keyword = f"%{q.strip()}%"
+    return (
+        db.query(Student)
+        .filter(
+            or_(
+                Student.first_name.ilike(keyword),
+                Student.last_name.ilike(keyword),
+                Student.email.ilike(keyword),
+                Student.student_id.ilike(keyword),
+                Student.track.ilike(keyword),
+            )
+        )
+        .all()
+    )
+
+
 
 
 
