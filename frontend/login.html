@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Sign In  Tech4Girls LMS</title>
+    <title>Student Sign In Tech4Girls LMS</title>
     <meta
       name="description"
       content="Student sign in to your Tech4Girls LMS account to access courses, assignments, and your learning dashboard."
@@ -48,6 +48,12 @@
           </svg>
         </button>
         <ul class="navbar-links" id="navbar-links">
+          <button class="sidebar-close-btn" id="sidebar-close">
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
           <li><a href="index.html" id="nav-home">Home</a></li>
           <li><a href="index.html#features" id="nav-features">Features</a></li>
           <li><a href="index.html#about" id="nav-about">About</a></li>
@@ -59,11 +65,10 @@
         </ul>
       </div>
     </nav>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <!-- ========== LOGIN ========== -->
     <main class="login-main">
       <div class="login-wrapper">
-        <!-- Left: Visual panel -->
         <div class="login-visual">
           <div class="login-visual-content">
             <img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo" />
@@ -96,7 +101,7 @@
 
             <div class="form-group">
               <label class="form-label" for="password">Password</label>
-              <div style="position: relative;">
+              <div style="position: relative">
                 <input
                   type="password"
                   class="form-input"
@@ -105,12 +110,35 @@
                   placeholder="Enter your password"
                   required
                   autocomplete="current-password"
-                  style="padding-right: 44px;"
+                  style="padding-right: 44px"
                 />
-                <button type="button" onclick="togglePassword('password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
+                <button
+                  type="button"
+                  onclick="togglePassword('password', this)"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 4px;
+                    color: #6b7280;
+                  "
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
                   </svg>
                 </button>
               </div>
@@ -166,68 +194,65 @@
     </footer>
 
     <script>
-      
-    
+      const BASE_URL = "https://t4g-lms.onrender.com";
 
-          const BASE_URL = "https://t4g-lms.onrender.com";
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
 
-          document
-            .getElementById("login-form")
-            .addEventListener("submit", async function (e) {
-              e.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const btn = document.getElementById("login-submit");
 
-              const email = document.getElementById("email").value;
-              const password = document.getElementById("password").value;
-              const btn = document.getElementById("login-submit");
+          btn.textContent = "Signing in...";
+          btn.style.opacity = "0.7";
+          btn.style.pointerEvents = "none";
 
-              btn.textContent = "Signing in...";
-              btn.style.opacity = "0.7";
-              btn.style.pointerEvents = "none";
-
-              try {
-                const response = await fetch(`${BASE_URL}/students/login`, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ email, password }),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                  localStorage.setItem("student_token", data.access_token);
-                  localStorage.setItem(
-                    "student_user",
-                    JSON.stringify(data.student),
-                  );
-                  window.location.href = "student-dashboard.html";
-                } else {
-                  alert(
-                    data.detail ||
-                      "Login failed. Please check your credentials.",
-                  );
-                  btn.textContent = "Sign In";
-                  btn.style.opacity = "1";
-                  btn.style.pointerEvents = "auto";
-                }
-              } catch (error) {
-                alert(
-                  "Could not connect to server. Make sure your backend is running.",
-                );
-                btn.textContent = "Sign In";
-                btn.style.opacity = "1";
-                btn.style.pointerEvents = "auto";
-              }
+          try {
+            const response = await fetch(`${BASE_URL}/students/login`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ email, password }),
             });
 
+            const data = await response.json();
 
-            function togglePassword(inputId, btn) {
+            if (response.ok) {
+              localStorage.setItem("student_token", data.access_token);
+              localStorage.setItem(
+                "student_user",
+                JSON.stringify(data.student),
+              );
+              window.location.href = "student-dashboard.html";
+            } else {
+              alert(
+                data.detail || "Login failed. Please check your credentials.",
+              );
+              btn.textContent = "Sign In";
+              btn.style.opacity = "1";
+              btn.style.pointerEvents = "auto";
+            }
+          } catch (error) {
+            alert(
+              "Could not connect to server. Make sure your backend is running.",
+            );
+            btn.textContent = "Sign In";
+            btn.style.opacity = "1";
+            btn.style.pointerEvents = "auto";
+          }
+        });
+
+      function togglePassword(inputId, btn) {
         const input = document.getElementById(inputId);
-        if (input.type === 'password') {
-          input.type = 'text';
-          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerHTML =
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
         } else {
-          input.type = 'password';
-          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+          input.type = "password";
+          btn.innerHTML =
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
         }
       }
       const navbar = document.getElementById("navbar");
@@ -237,17 +262,33 @@
 
       const navToggle = document.getElementById("nav-toggle");
       const navLinks = document.getElementById("navbar-links");
-      navToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
+      const sidebarOverlay = document.getElementById("sidebar-overlay");
+
+      function openSidebar() {
+        navToggle.classList.add("active");
+        navLinks.classList.add("active");
+        sidebarOverlay.classList.add("active");
+        document.body.classList.add("sidebar-open");
+      }
+
+      function closeSidebar() {
+        navToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+        sidebarOverlay.classList.remove("active");
+        document.body.classList.remove("sidebar-open");
+      }
+
+      navToggle.addEventListener("click", openSidebar);
+
+      document
+        .getElementById("sidebar-close")
+        .addEventListener("click", closeSidebar);
+
+      sidebarOverlay.addEventListener("click", closeSidebar);
 
       navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("active");
-        });
+        link.addEventListener("click", closeSidebar);
       });
-
-        
     </script>
   </body>
 </html>

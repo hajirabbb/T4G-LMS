@@ -280,51 +280,65 @@ h6 {
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
+    z-index: 1300;
   }
 
   .navbar-links {
-    display: none;
+    display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 72px;
-    left: 0;
+    position: fixed;
+    top: 0;
     right: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 85vw;
     background: var(--white);
-    padding: 16px 24px 24px;
-    border-bottom: 1px solid var(--gray-200);
-    box-shadow: var(--shadow-lg);
-    gap: 4px;
+    padding-top: 72px;
+    box-shadow: -8px 0 32px rgba(3, 4, 94, 0.15);
+    z-index: 1200;
+    gap: 0;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
   }
 
   .navbar-links.active {
-    display: flex;
+    transform: translateX(0);
+  }
+
+  .navbar-links li {
+    border-bottom: 1px solid var(--gray-100);
+    width: 100%;
   }
 
   .navbar-links li a {
     width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 14px;
-    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    border-radius: 0;
+    font-size: 0.95rem;
   }
 
-  .navbar-links li a.active-link::after {
+  .sidebar-overlay {
     display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 4, 94, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity 0.35s ease;
   }
 
-  .navbar-signin-btn {
-    width: 100% !important;
-    justify-content: center !important;
-    border-radius: var(--radius-md) !important;
-    padding: 14px 24px !important;
-    margin-top: 8px;
+  .sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  body.sidebar-open {
+    overflow: hidden;
   }
 }
 
-
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero {
   background: var(--deep);
   padding: 80px 0 120px;
