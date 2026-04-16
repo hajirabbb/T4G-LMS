@@ -855,7 +855,7 @@
             body: JSON.stringify(body),
           });
           if (res.ok) {
-            alert("Student enrolled successfully! ✅");
+            alert("Student enrolled successfully! ");
             closeModal("enroll-modal");
             this.reset();
           } else {
@@ -863,29 +863,37 @@
             alert(data.detail || "Failed to enroll student");
           }
         });
+// Search filtering
+document
+  .getElementById("search-students")
+  .addEventListener("input", async function () {
+    const q = this.value.trim();
+    if (!q) {
+      loadDashboard();
+      return;
+    }
+    const res = await fetch(`${BASE_URL}/students/search?q=${encodeURIComponent(q)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const students = await res.json();
+    loadStudentsTable(students);
+  });
 
-      // Search filtering
-      document
-        .getElementById("search-students")
-        .addEventListener("input", function () {
-          filterTable("students-table", this.value);
-        });
-      document
-        .getElementById("search-lecturers")
-        .addEventListener("input", function () {
-          filterTable("lecturers-table", this.value);
-        });
-
-      function filterTable(tableId, query) {
-        const rows = document.querySelectorAll(`#${tableId} tbody tr`);
-        const q = query.toLowerCase();
-        rows.forEach((row) => {
-          row.style.display = row.textContent.toLowerCase().includes(q)
-            ? ""
-            : "none";
-        });
-      }
-
+document
+  .getElementById("search-lecturers")
+  .addEventListener("input", async function () {
+    const q = this.value.trim();
+    if (!q) {
+      loadDashboard();
+      return;
+    }
+    const res = await fetch(`${BASE_URL}/staff/search?q=${encodeURIComponent(q)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const staff = await res.json();
+    loadStaffTable(staff);
+  });
+  
       document
         .getElementById("filter-student-track")
         .addEventListener("change", function () {
