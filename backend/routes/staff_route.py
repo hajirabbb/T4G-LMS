@@ -7,7 +7,7 @@ from services.staff_service import (
     get_staff_by_id,
     create_staff,
     delete_staff,
-    get_staff_by_email
+    get_staff_by_email,
     search_staff
 )
 from schemas.staff_schema import StaffCreate, StaffResponse, StaffLogin, ChangePassword, ForgotPassword, ResetPassword
@@ -20,6 +20,24 @@ router = APIRouter(prefix="/staff", tags=["Staff"])
 @router.get("/", response_model=list[StaffResponse])
 def read_staff(db: Session = Depends(get_db)):
     return get_all_staff(db)
+
+
+@router.get("/search")
+def search_staff_route(
+    q: str = Query(..., min_length=1),
+    db: Session = Depends(get_db)
+):
+    results = search_staff(db, q)
+    return results
+
+
+@router.delete("/{staff_id}")
+def remove_staff(staff_id: str, db: Session = Depends(get_db)):
+    staff = delete_staff(db, staff_id)
+    if not staff:
+        raise HTTPException(status_code=404, detail="Staff not found")
+    return {"message": "Staff deleted successfully"}
+
 
 
 @router.get("/{staff_id}", response_model=StaffResponse)
@@ -60,20 +78,6 @@ def login_staff(staff: StaffLogin, db: Session = Depends(get_db)):
     }
 
 
-@router.get("/search")
-def search_staff_route(
-    q: str = Query(..., min_length=1),
-    db: Session = Depends(get_db)
-):
-    results = search_staff(db, q)
-    return results
-
-@router.delete("/{staff_id}")
-def remove_staff(staff_id: str, db: Session = Depends(get_db)):
-    staff = delete_staff(db, staff_id)
-    if not staff:
-        raise HTTPException(status_code=404, detail="Staff not found")
-    return {"message": "Staff deleted successfully"}
 
 
 @router.put("/change-password")

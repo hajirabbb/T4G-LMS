@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import or_
 from auth import hash_password
 from models.student_model import Student
 from schemas.student_schema import StudentCreate
@@ -30,11 +31,8 @@ def get_student_by_id(db: Session, student_id: int):
 
 
  
+
 def search_students(db: Session, q: str):
-    """
-    Search students by first name, last name, email, student ID, or track.
-    Case-insensitive, partial match.
-    """
     keyword = f"%{q.strip()}%"
     return (
         db.query(Student)

@@ -8,7 +8,7 @@ from services.student_service import (
     get_all_students,
     get_student_by_id,
     create_student,
-    delete_student
+    delete_student,
     search_students
 )
 from schemas.student_schema import StudentCreate, StudentResponse, StudentLogin, ChangePassword, ForgotPassword, ResetPassword
@@ -24,6 +24,15 @@ router = APIRouter(prefix="/students", tags=["Students"])
 @router.get("/", response_model=list[StudentResponse])
 def read_students(db: Session = Depends(get_db)):
     return get_all_students(db)
+
+
+@router.get("/search")
+def search_students_route(
+    q: str = Query(..., min_length=1),
+    db: Session = Depends(get_db)
+):
+    results = search_students(db, q)
+    return results
 
 
 @router.get("/{student_id}", response_model=StudentResponse)
@@ -110,11 +119,5 @@ def reset_password(data: ResetPassword, db: Session = Depends(get_db)):
     return {"message": "Password reset successfully"}
 
 
-@router.get("/search")
-def search_students_route(
-    q: str = Query(..., min_length=1),
-    db: Session = Depends(get_db)
-):
-    results = search_students(db, q)
-    return results
+
 
