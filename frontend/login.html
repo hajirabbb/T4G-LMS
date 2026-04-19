@@ -269,7 +269,7 @@ document.getElementById("password").addEventListener("input", hideLoginError);
 
 
 
-// ── Password toggle ───────────────────────────────────
+
 function togglePassword(inputId, btn) {
   const input = document.getElementById(inputId);
   if (input.type === "password") {
@@ -328,16 +328,20 @@ if (modalClose) {
 
 function openModal() {
   closeNav();
+  if (modalOverlay) {
   modalOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
 }
+}
 
 function closeModal() {
+  if (modalOverlay) {
   modalOverlay.classList.remove("active");
   document.body.style.overflow = "";
 }
+}
 
-// Wire up ALL contact-admin-link elements on the page
+
 document.querySelectorAll("#contact-admin-link").forEach((link) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
