@@ -358,7 +358,9 @@ if (modalOverlay) {
   });
 }
 
-// ── Formspree submit ──────────────────────────────────
+
+
+if (requestForm) {
 requestForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -394,6 +396,7 @@ requestForm.addEventListener("submit", async (e) => {
     modalSubmit.textContent = "Send Request";
   }
 });
+}
     </script>
   </body>
 </html>
