@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Enum, Boolean
-from sqlalchemy.dialects.sqlite import TEXT
+from sqlalchemy import Text
 from database import Base
 import enum
 import uuid
@@ -13,7 +13,7 @@ class StaffTrackEnum(str, enum.Enum):
 class Staff(Base):
     __tablename__ = "staff"
 
-    id = Column(TEXT, primary_key=True, default=lambda: str(uuid.uuid4()))
+    id = Column(Text, primary_key=True, default=lambda: str(uuid.uuid4()))
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     email = Column(String(100), unique=True, nullable=False)
