@@ -280,6 +280,7 @@ modalOverlay.addEventListener('click', (e) => {
 });
 
 // Submit via Formspree
+if (requestForm){
 requestForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -314,7 +315,9 @@ requestForm.addEventListener('submit', async (e) => {
     modalSubmit.disabled = false;
     modalSubmit.textContent = 'Send Request';
   }
+
 });
+}
 		
 		
 		
