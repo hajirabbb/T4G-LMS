@@ -20,64 +20,175 @@
     <link rel="stylesheet" href="css/dashboard.css" />
   </head>
   <body class="dashboard-page">
- <!-- Default Password Banner -->
-<div class="default-password-banner" id="default-password-banner" style="display:none; background: #fff3cd; border-left: 4px solid #f0ad4e; padding: 14px 24px; align-items:center; justify-content:space-between; gap:16px;">
-    <div style="display:flex; align-items:center; gap:12px;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f0ad4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="12" y1="8" x2="12" y2="12"/>
-            <line x1="12" y1="16" x2="12.01" y2="16"/>
+    <!-- Default Password Banner -->
+    <div
+      class="default-password-banner"
+      id="default-password-banner"
+      style="
+        display: none;
+        background: #fff3cd;
+        border-left: 4px solid #f0ad4e;
+        padding: 14px 24px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      "
+    >
+      <div style="display: flex; align-items: center; gap: 12px">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#f0ad4e"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
-        <span style="color:#856404; font-size:14px; font-weight:500;">
-            You are using the default password <strong>temp1234</strong>. Please change it to secure your account.
+        <span style="color: #856404; font-size: 14px; font-weight: 500">
+          You are using the default password <strong>temp1234</strong>. Please
+          change it to secure your account.
         </span>
-    </div>
-    <button onclick="openChangePassword()" style="background:#f0ad4e; color:#fff; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:600; white-space:nowrap;">
+      </div>
+      <button
+        onclick="openChangePassword()"
+        style="
+          background: #f0ad4e;
+          color: #fff;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 13px;
+          font-weight: 600;
+          white-space: nowrap;
+        "
+      >
         Change Password
-    </button>
-</div>
+      </button>
+    </div>
 
-   
-	
-	<nav class="navbar" id="navbar">
-		<div class="navbar-inner">
+    <nav class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <!-- Logo -->
+        <a href="index.html" class="navbar-logo" id="logo-link">
+          <img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo" />
+          <span class="logo-text">Tech4Girls</span>
+        </a>
 
-			<!-- Logo -->
-			<a href="index.html" class="navbar-logo" id="logo-link">
-				<img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
-				<span class="logo-text">Tech4Girls</span>
-			</a>
+        <!-- Desktop nav links (also becomes the sidebar on mobile) -->
+        <ul class="navbar-links" id="navbar-links">
+          <!-- Sidebar Header -->
+          <li class="sidebar-brand">
+            <img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo" />
+            <span>Tech4Girls</span>
+          </li>
 
-			<!-- Desktop nav links (also becomes the sidebar on mobile) -->
-			<ul class="navbar-links" id="navbar-links">
-				<li><a href="index.html" class="active-link" id="nav-home">Home</a></li>
-				<li><a href="#features" id="nav-features">Features</a></li>
-				<li><a href="#about" id="nav-about">About</a></li>
-				<li>
-					<a href="login.html" class="navbar-signin-btn" id="nav-signin">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-							stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-							<polyline points="10 17 15 12 10 7" />
-							<line x1="15" y1="12" x2="3" y2="12" />
-						</svg>
-						Sign In
-					</a>
-				</li>
-			</ul>
+          <!-- Nav Links -->
+          <li class="sidebar-section-label">Menu</li>
+          <li>
+            <a href="index.html" class="active-link" id="nav-home">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#features" id="nav-features">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              Features
+            </a>
+          </li>
+          <li>
+            <a href="#about" id="nav-about">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              About
+            </a>
+          </li>
 
-			<!-- Hamburger (hidden on desktop) -->
-			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-				<span class="hamburger-line"></span>
-			</button>
+          <!-- Divider -->
+          <li class="sidebar-divider"></li>
 
-		</div>
+          <!-- Sign In button -->
 
-		<!-- Dark overlay behind sidebar -->
-		<div class="nav-overlay" id="nav-overlay"></div>
-	</nav>
+          <li class="sidebar-divider"></li>
+
+          <li>
+            <a href="#" id="sidebar-logout" class="sidebar-logout-btn">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <polyline points="10 17 15 12 10 7" />
+                <line x1="15" y1="12" x2="3" y2="12" />
+              </svg>
+              Sign Out
+            </a>
+          </li>
+        </ul>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Toggle navigation"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+      <!-- Dark overlay behind sidebar -->
+      <div class="nav-overlay" id="nav-overlay"></div>
+    </nav>
 
     <main class="dashboard-main" id="dashboard-main">
       <div class="dashboard-header">
@@ -224,68 +335,231 @@
       </div>
     </main>
     <div class="modal-overlay" id="change-password-modal">
-    <div class="modal">
+      <div class="modal">
         <div class="modal-header">
-            <h3>Change Your Password</h3>
-            <button class="modal-close" onclick="closeChangePassword()">
-                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
+          <h3>Change Your Password</h3>
+          <button class="modal-close" onclick="closeChangePassword()">
+            <svg
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
         <div class="modal-body">
-            <form class="dashboard-form" id="change-password-form">
-                <div class="form-group full-width">
-                    <label class="form-label" for="current-password">Current Password</label>
-                    <div style="position: relative;">
-                        <input type="password" class="form-input" id="current-password" placeholder="Enter current password" required style="padding-right: 44px;" />
-                        <button type="button" onclick="togglePassword('current-password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="form-group full-width">
-                    <label class="form-label" for="new-password">New Password</label>
-                    <div style="position: relative;">
-                        <input type="password" class="form-input" id="new-password" placeholder="Enter new password" required style="padding-right: 44px;" />
-                        <button type="button" onclick="togglePassword('new-password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="form-group full-width">
-                    <label class="form-label" for="confirm-password">Confirm New Password</label>
-                    <div style="position: relative;">
-                        <input type="password" class="form-input" id="confirm-password" placeholder="Confirm new password" required style="padding-right: 44px;" />
-                        <button type="button" onclick="togglePassword('confirm-password', this)" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; padding:4px; color:#6b7280;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                <circle cx="12" cy="12" r="3"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn-action btn-action-primary">
-                        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"/>
-                        </svg>
-                        Change Password
-                    </button>
-                    <button type="button" class="btn-action btn-action-secondary" onclick="closeChangePassword()">Cancel</button>
-                </div>
-            </form>
+          <form class="dashboard-form" id="change-password-form">
+            <div class="form-group full-width">
+              <label class="form-label" for="current-password"
+                >Current Password</label
+              >
+              <div style="position: relative">
+                <input
+                  type="password"
+                  class="form-input"
+                  id="current-password"
+                  placeholder="Enter current password"
+                  required
+                  style="padding-right: 44px"
+                />
+                <button
+                  type="button"
+                  onclick="togglePassword('current-password', this)"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 4px;
+                    color: #6b7280;
+                  "
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label" for="new-password">New Password</label>
+              <div style="position: relative">
+                <input
+                  type="password"
+                  class="form-input"
+                  id="new-password"
+                  placeholder="Enter new password"
+                  required
+                  style="padding-right: 44px"
+                />
+                <button
+                  type="button"
+                  onclick="togglePassword('new-password', this)"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 4px;
+                    color: #6b7280;
+                  "
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label" for="confirm-password"
+                >Confirm New Password</label
+              >
+              <div style="position: relative">
+                <input
+                  type="password"
+                  class="form-input"
+                  id="confirm-password"
+                  placeholder="Confirm new password"
+                  required
+                  style="padding-right: 44px"
+                />
+                <button
+                  type="button"
+                  onclick="togglePassword('confirm-password', this)"
+                  style="
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 4px;
+                    color: #6b7280;
+                  "
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-action btn-action-primary">
+                <svg
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Change Password
+              </button>
+              <button
+                type="button"
+                class="btn-action btn-action-secondary"
+                onclick="closeChangePassword()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
-<footer class="footer" id="footer">
+     <!-- Logout Confirmation Modal -->
+    <div class="modal-overlay" id="logout-modal">
+      <div class="modal" style="max-width: 400px; padding: 32px">
+        <div style="text-align: center">
+          <div
+            class="modal-icon"
+            style="background: #fef2f2; color: #dc2626; margin: 0 auto 16px"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px">
+            Sign Out
+          </h2>
+          <p style="color: var(--gray-500, #6b7280); font-size: 0.9rem">
+            Are you sure you want to sign out of your account?
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 12px; margin-top: 24px">
+          <button
+            class="modal-submit"
+            id="logout-confirm"
+            style="background: #dc2626; flex: 1"
+          >
+            Yes, Sign Out
+          </button>
+          <button
+            class="modal-submit"
+            id="logout-cancel"
+            style="
+              background: var(--gray-200, #e5e7eb);
+              color: var(--gray-700, #374151);
+              flex: 1;
+            "
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" id="footer">
       <div class="footer-inner">
         <div class="footer-top">
           <div class="footer-brand-col">
@@ -328,69 +602,335 @@
       </div>
     </footer>
 
+
+   
     <script>
       function togglePassword(inputId, btn) {
         const input = document.getElementById(inputId);
-        if (input.type === 'password') {
-          input.type = 'text';
-          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+        if (input.type === "password") {
+          input.type = "text";
+          btn.innerHTML =
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
         } else {
-          input.type = 'password';
-          btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+          input.type = "password";
+          btn.innerHTML =
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
         }
       }
-      const BASE_URL = "https://t4g-lms.onrender.com";
+
+      const BASE_URL = "http://127.0.0.1:8000";
       const token = localStorage.getItem("student_token");
       const studentUser = JSON.parse(localStorage.getItem("student_user"));
 
+      // ── Auth Guard ────────────────────────────────────────
       if (!token || !studentUser) {
         window.location.href = "login.html";
       }
 
+      // ── User Display ──────────────────────────────────────
       document.querySelector(".dashboard-greeting h1").textContent =
         `Welcome, ${studentUser.first_name} 👋`;
-      document.querySelector(".nav-user-name").textContent =
-        `${studentUser.first_name} ${studentUser.last_name}`;
-      document.querySelector(".nav-user-avatar").textContent =
-        studentUser.first_name[0] + studentUser.last_name[0];
-      document.querySelector(".dashboard-role-badge").innerHTML = `
-			<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-				<path d="M6 12v5c3 3 10 3 12 0v-5"/>
-			</svg>
-			Student ${studentUser.track} Track
-		`;
 
+      document.querySelector(".dashboard-role-badge").innerHTML = `
+  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+    <path d="M6 12v5c3 3 10 3 12 0v-5"/>
+  </svg>
+  Student · ${studentUser.track} Track
+`;
+
+      // ── Toast Notification ────────────────────────────────
+      function showToast(message, type = "info") {
+        const existing = document.getElementById("toast");
+        if (existing) existing.remove();
+
+        const colors = {
+          success: { bg: "#f0fdf4", border: "#86efac", text: "#16a34a" },
+          error: { bg: "#fef2f2", border: "#fca5a5", text: "#dc2626" },
+          info: { bg: "#eff6ff", border: "#93c5fd", text: "#1d4ed8" },
+          warning: { bg: "#fff3cd", border: "#f0ad4e", text: "#856404" },
+        };
+
+        const c = colors[type] || colors.info;
+        const icons = {
+          success:
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+          error:
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+          info: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>',
+          warning:
+            '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        };
+
+        const toast = document.createElement("div");
+        toast.id = "toast";
+        toast.style.cssText = `
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    background: ${c.bg};
+    border: 1.5px solid ${c.border};
+    color: ${c.text};
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: inherit;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 360px;
+    animation: toastSlideIn 0.3s ease;
+  `;
+        toast.innerHTML = `${icons[type]}<span>${message}</span>`;
+        document.body.appendChild(toast);
+
+        if (!document.getElementById("toast-style")) {
+          const style = document.createElement("style");
+          style.id = "toast-style";
+          style.textContent = `
+      @keyframes toastSlideIn {
+        from { opacity: 0; transform: translateX(40px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+    `;
+          document.head.appendChild(style);
+        }
+
+        setTimeout(() => toast.remove(), 4000);
+      }
+
+      // ── Navbar Scroll Shadow ──────────────────────────────
       const navbar = document.getElementById("navbar");
       window.addEventListener("scroll", () => {
         navbar.classList.toggle("scrolled", window.scrollY > 10);
       });
 
+      // ── Sidebar Drawer ────────────────────────────────────
       const navToggle = document.getElementById("nav-toggle");
       const navLinks = document.getElementById("navbar-links");
+      const navOverlay = document.getElementById("nav-overlay");
+
+      function openNav() {
+        navToggle.classList.add("active");
+        navLinks.classList.add("active");
+        navOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeNav() {
+        navToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+        navOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
       navToggle.addEventListener("click", () => {
-        navToggle.classList.toggle("active");
-        navLinks.classList.toggle("active");
-      });
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navToggle.classList.remove("active");
-          navLinks.classList.remove("active");
-        });
+        navLinks.classList.contains("active") ? closeNav() : openNav();
       });
 
+      navOverlay.addEventListener("click", closeNav);
+      navLinks.querySelectorAll("a:not(#sidebar-logout)").forEach((link) => {
+        link.addEventListener("click", closeNav);
+      });
+
+      //logout modal
+      const logoutModal = document.getElementById("logout-modal");
+
+      function openLogoutModal() {
+        logoutModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLogoutModal() {
+        logoutModal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+document.getElementById("sidebar-logout").addEventListener("click", (e) => {
+  e.preventDefault();
+  closeNav(); // close the sidebar first
+  setTimeout(() => {
+    openLogoutModal(); // wait for sidebar to finish closing, then open modal
+  }, 300); // 300ms matches your CSS transition duration
+});
+     
+      document
+        .getElementById("logout-confirm")
+        .addEventListener("click", () => {
+          localStorage.removeItem("student_token");
+          localStorage.removeItem("student_user");
+          window.location.href = "login.html";
+        });
+
+      document.getElementById("logout-cancel").addEventListener("click", () => {
+        closeLogoutModal();
+      });
+
+      logoutModal.addEventListener("click", (e) => {
+        if (e.target === logoutModal) closeLogoutModal();
+      });
+
+      // ── Default Password Banner & Modal ───────────────────
+      const changePasswordModal = document.getElementById(
+        "change-password-modal",
+      );
+      const modalCloseBtn = changePasswordModal.querySelector(".modal-close");
+
+      function openChangePassword() {
+        changePasswordModal.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeChangePassword() {
+        if (studentUser.is_default_password) {
+          showToast(
+            "Please change your default password first to secure your account.",
+            "warning",
+          );
+          return;
+        }
+        changePasswordModal.classList.remove("open");
+        document.body.style.overflow = "";
+        document.getElementById("change-password-form").reset();
+        clearPasswordError();
+      }
+
+      if (studentUser.is_default_password) {
+        document.getElementById("default-password-banner").style.display =
+          "flex";
+        openChangePassword();
+        // Force first-time users — hide close button
+        modalCloseBtn.style.display = "none";
+      } else {
+        document.getElementById("default-password-banner").style.display =
+          "none";
+      }
+
+      // ── Password Form Inline Error ────────────────────────
+      function showPasswordError(msg) {
+        let el = document.getElementById("password-form-error");
+        if (!el) {
+          el = document.createElement("p");
+          el.id = "password-form-error";
+          el.style.cssText = `
+      color: #dc2626;
+      font-size: 0.85rem;
+      margin: 0 0 8px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    `;
+          document
+            .getElementById("change-password-form")
+            .querySelector(".form-actions")
+            .before(el);
+        }
+        el.textContent = msg;
+      }
+
+      function clearPasswordError() {
+        const el = document.getElementById("password-form-error");
+        if (el) el.remove();
+      }
+
+      // ── Change Password Form Submit ───────────────────────
+      document
+        .getElementById("change-password-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          clearPasswordError();
+
+          const currentPassword =
+            document.getElementById("current-password").value;
+          const newPassword = document.getElementById("new-password").value;
+          const confirmPassword =
+            document.getElementById("confirm-password").value;
+          const submitBtn = this.querySelector("[type='submit']");
+
+          if (newPassword !== confirmPassword) {
+            showPasswordError("New passwords do not match.");
+            return;
+          }
+          if (newPassword.length < 8) {
+  showPasswordError("Password must be at least 8 characters.");
+  return;
+}
+if (!/[A-Z]/.test(newPassword)) {
+  showPasswordError("Password must contain at least one uppercase letter.");
+  return;
+}
+if (!/[0-9]/.test(newPassword)) {
+  showPasswordError("Password must contain at least one number.");
+  return;
+}
+          if (newPassword === "temp1234") {
+            showPasswordError(
+              "Please choose a different password from the default one.",
+            );
+            return;
+          }
+
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = "0.7";
+
+          try {
+            const res = await fetch(`${BASE_URL}/students/change-password`, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                current_password: currentPassword,
+                new_password: newPassword,
+              }),
+            });
+
+            if (res.ok) {
+              // Update local storage
+              studentUser.is_default_password = false;
+              localStorage.setItem("student_user", JSON.stringify(studentUser));
+
+              // Hide banner, show close button, close modal
+              document.getElementById("default-password-banner").style.display =
+                "none";
+              modalCloseBtn.style.display = "";
+              changePasswordModal.classList.remove("open");
+              document.body.style.overflow = "";
+              document.getElementById("change-password-form").reset();
+
+              showToast(
+                "Password changed successfully! Your account is now secure.",
+                "success",
+              );
+            } else {
+              const data = await res.json();
+              showPasswordError(
+                data.detail || "Failed to change password. Please try again.",
+              );
+            }
+          } catch {
+            showPasswordError(
+              "Service is temporarily unavailable. Please try again later.",
+            );
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = "1";
+          }
+        });
+
+      // ── Load Courses & Materials ──────────────────────────
       async function loadCourses() {
         try {
-          // Get student's enrollments
           const enrollRes = await fetch(
             `${BASE_URL}/enrollments/student/${studentUser.id}`,
-            {
-              headers: { Authorization: `Bearer ${token}` },
-            },
+            { headers: { Authorization: `Bearer ${token}` } },
           );
           const enrollments = await enrollRes.json();
 
-          // Update enrolled count
           document.getElementById("stat-enrolled").textContent =
             enrollments.length;
           document.getElementById("stat-inprogress").textContent =
@@ -401,15 +941,14 @@
 
           if (enrollments.length === 0) {
             courseCardsContainer.innerHTML = `
-                <div style="padding: 40px; text-align: center; color: var(--text-muted);">
-                    You are not enrolled in any courses yet. Contact your admin.
-                </div>`;
+        <div style="padding:40px; text-align:center; color:var(--text-muted);">
+          You are not enrolled in any courses yet. Contact your admin.
+        </div>`;
             document.querySelector("#materials-table tbody").innerHTML =
               '<tr><td colspan="5" style="text-align:center; padding:20px;">No materials yet.</td></tr>';
             return;
           }
 
-          // Fetch full course details and materials for each enrollment
           const materialsBody = document.querySelector(
             "#materials-table tbody",
           );
@@ -417,66 +956,58 @@
           let totalMaterials = 0;
 
           for (const enrollment of enrollments) {
-            // Get course details
             const courseRes = await fetch(
               `${BASE_URL}/courses/${enrollment.course_id}`,
-              {
-                headers: { Authorization: `Bearer ${token}` },
-              },
+              { headers: { Authorization: `Bearer ${token}` } },
             );
             const course = await courseRes.json();
 
-            // Get materials for this course
             const matRes = await fetch(
               `${BASE_URL}/materials/course/${enrollment.course_id}`,
-              {
-                headers: { Authorization: `Bearer ${token}` },
-              },
+              { headers: { Authorization: `Bearer ${token}` } },
             );
             const materials = await matRes.json();
             totalMaterials += materials.length;
 
             const trackClass = course.track.toLowerCase();
-            const card = `
-                <div class="course-card" data-status="in-progress">
-                    <div class="course-card-banner banner-${trackClass}"></div>
-                    <div class="course-card-body">
-                        <div class="course-card-track">
-                            <span class="track-badge track-${trackClass}">${course.track}</span>
-                        </div>
-                        <h3 class="course-card-title">${course.course_name}</h3>
-                        <p class="course-card-desc">${course.description || "No description available."}</p>
-                        <div class="course-progress">
-                            <div class="course-progress-bar">
-                                <div class="course-progress-fill" style="width: 0%;"></div>
-                            </div>
-                            <div class="course-progress-text">
-                                <span>0% Complete</span>
-                                <span>${materials.length} materials</span>
-                            </div>
-                        </div>
-                        <div class="course-card-meta">
-                            <div class="course-card-meta-item">
-                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="12" cy="7" r="4"/>
-                                </svg>
-                                ${course.track} Track
-                            </div>
-                            <div class="course-card-meta-item">
-                                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                    <polyline points="14 2 14 8 20 8"/>
-                                </svg>
-                                ${materials.length} materials
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `;
-            courseCardsContainer.innerHTML += card;
+            courseCardsContainer.innerHTML += `
+        <div class="course-card" data-status="in-progress">
+          <div class="course-card-banner banner-${trackClass}"></div>
+          <div class="course-card-body">
+            <div class="course-card-track">
+              <span class="track-badge track-${trackClass}">${course.track}</span>
+            </div>
+            <h3 class="course-card-title">${course.course_name}</h3>
+            <p class="course-card-desc">${course.description || "No description available."}</p>
+            <div class="course-progress">
+              <div class="course-progress-bar">
+                <div class="course-progress-fill" style="width: 0%;"></div>
+              </div>
+              <div class="course-progress-text">
+                <span>0% Complete</span>
+                <span>${materials.length} materials</span>
+              </div>
+            </div>
+            <div class="course-card-meta">
+              <div class="course-card-meta-item">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                ${course.track} Track
+              </div>
+              <div class="course-card-meta-item">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                ${materials.length} materials
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
 
-            // Add materials to table
             materials.forEach((material) => {
               const date = new Date(material.uploaded_at).toLocaleDateString(
                 "en-GB",
@@ -487,36 +1018,36 @@
                 },
               );
               materialsBody.innerHTML += `
-                    <tr>
-                        <td>
-                            <div class="table-user">
-                                <div class="uploaded-file-icon" style="width:32px; height:32px;">
-                                    <span style="font-size: 0.6rem;">PDF</span>
-                                </div>
-                                <span class="table-user-name">${material.file_name}</span>
-                            </div>
-                        </td>
-                        <td>${course.course_name}</td>
-                        <td>${date}</td>
-                        <td>—</td>
-                        <td>
-                            <a href="${BASE_URL}/materials/download/${material.id}" 
-                               class="btn-action btn-action-secondary btn-action-sm"
-                               target="_blank">
-                                <svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                    <polyline points="7 10 12 15 17 10"/>
-                                    <line x1="12" y1="15" x2="12" y2="3"/>
-                                </svg>
-                                Download
-                            </a>
-                        </td>
-                    </tr>
-                `;
+          <tr>
+            <td>
+              <div class="table-user">
+                <div class="uploaded-file-icon" style="width:32px; height:32px;">
+                  <span style="font-size:0.6rem;">PDF</span>
+                </div>
+                <span class="table-user-name">${material.file_name}</span>
+              </div>
+            </td>
+            <td>${course.course_name}</td>
+            <td>${date}</td>
+            <td>—</td>
+            <td>
+              <a href="${BASE_URL}/materials/download/${material.id}"
+                 class="btn-action btn-action-secondary btn-action-sm"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Download
+              </a>
+            </td>
+          </tr>
+        `;
             });
           }
 
-          // Update materials stat card
           document.getElementById("stat-materials").textContent =
             totalMaterials;
 
@@ -528,9 +1059,14 @@
           bindTabs();
         } catch (error) {
           console.error("Error loading courses:", error);
+          showToast(
+            "Could not load your courses. Please refresh the page.",
+            "error",
+          );
         }
       }
 
+      // ── Course Filter Tabs ────────────────────────────────
       function bindTabs() {
         const tabs = document.querySelectorAll(".dashboard-tab");
         tabs.forEach((tab) => {
@@ -539,101 +1075,16 @@
             tab.classList.add("active");
             const filter = tab.dataset.filter;
             document.querySelectorAll(".course-card").forEach((card) => {
-              if (filter === "all") {
-                card.style.display = "";
-              } else {
-                card.style.display =
-                  card.dataset.status === filter ? "" : "none";
-              }
+              card.style.display =
+                filter === "all" || card.dataset.status === filter
+                  ? ""
+                  : "none";
             });
           });
         });
       }
 
       loadCourses();
-
-
-
-      // Show banner only if still on default password
-if (studentUser.is_default_password) {
-    document.getElementById('default-password-banner').style.display = 'flex'
-} else {
-    document.getElementById('default-password-banner').style.display = 'none'
-}
-
-function openChangePassword() {
-    document.getElementById('change-password-modal').classList.add('open')
-    document.body.style.overflow = 'hidden'
-}
-
-function closeChangePassword() {
-    // Only allow closing if password has been changed
-    if (!studentUser.is_default_password) {
-        document.getElementById('change-password-modal').classList.remove('open')
-        document.body.style.overflow = ''
-        document.getElementById('change-password-form').reset()
-    } else {
-        alert('Please change your default password first to secure your account!')
-    }
-}
-
-document.getElementById('change-password-form').addEventListener('submit', async function(e) {
-    e.preventDefault()
-    const currentPassword = document.getElementById('current-password').value
-    const newPassword = document.getElementById('new-password').value
-    const confirmPassword = document.getElementById('confirm-password').value
-
-    if (newPassword !== confirmPassword) {
-        alert('New passwords do not match!')
-        return
-    }
-    if (newPassword.length < 6) {
-        alert('New password must be at least 6 characters!')
-        return
-    }
-    if (newPassword === 'temp1234') {
-        alert('Please choose a different password from the default one!')
-        return
-    }
-
-    const res = await fetch(`${BASE_URL}/students/change-password`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({
-            current_password: currentPassword,
-            new_password: newPassword
-        })
-    })
-    if (res.ok) {
-    // Update localStorage so banner disappears immediately
-    studentUser.is_default_password = false
-    localStorage.setItem('student_user', JSON.stringify(studentUser))
-    
-    // Hide the banner immediately
-    document.getElementById('default-password-banner').style.display = 'none'
-    
-    // Close the modal
-    document.getElementById('change-password-modal').classList.remove('open')
-    document.body.style.overflow = ''
-    document.getElementById('change-password-form').reset()
-    
-    alert('Password changed successfully! ')
-}
-
-    else {
-        const data = await res.json()
-        alert(data.detail || 'Failed to change password')
-    }
-})
-
-// Auto open modal if default password
-if (studentUser.is_default_password) {
-    openChangePassword()
-}
     </script>
   </body>
 </html>
-

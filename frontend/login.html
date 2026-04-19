@@ -36,23 +36,58 @@
 
 			<!-- Desktop nav links (also becomes the sidebar on mobile) -->
 			<ul class="navbar-links" id="navbar-links">
-				<li><a href="index.html" class="active-link" id="nav-home">Home</a></li>
-				<li><a href="#features" id="nav-features">Features</a></li>
-				<li><a href="#about" id="nav-about">About</a></li>
-				<li>
-					<a href="login.html" class="navbar-signin-btn" id="nav-signin">
-						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-							stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-							<polyline points="10 17 15 12 10 7" />
-							<line x1="15" y1="12" x2="3" y2="12" />
-						</svg>
-						Sign In
-					</a>
-				</li>
-			</ul>
 
-			<!-- Hamburger (hidden on desktop) -->
+  <!-- Sidebar Header -->
+  <li class="sidebar-brand">
+    <img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo">
+    <span>Tech4Girls</span>
+  </li>
+
+  <!-- Nav Links -->
+  <li class="sidebar-section-label">Menu</li>
+  <li><a href="index.html" class="active-link" id="nav-home">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    Home
+  </a></li>
+  <li><a href="index.html" id="nav-features">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+    Features
+  </a></li>
+  <li><a href="#index.html#about" id="nav-about">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    About
+  </a></li>
+
+  <!-- Divider -->
+  <li class="sidebar-divider"></li>
+
+  <!-- Sign In button -->
+  <li>
+    <a href="login.html" class="navbar-signin-btn" id="nav-signin">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+        <polyline points="10 17 15 12 10 7"/>
+        <line x1="15" y1="12" x2="3" y2="12"/>
+      </svg>
+      Sign In
+    </a>
+  </li>
+
+  <!-- Footer note -->
+  <li class="sidebar-footer">
+    <p>Don't have an account yet?</p>
+            <a href="#" id="contact-admin-link">Contact your administrator</a>   
+  </li>
+
+</ul>
+
+			
 			<button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
 				<span class="hamburger-line"></span>
 				<span class="hamburger-line"></span>
@@ -64,7 +99,8 @@
 		<!-- Dark overlay behind sidebar -->
 		<div class="nav-overlay" id="nav-overlay"></div>
 	</nav>
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+
 
     <main class="login-main">
       <div class="login-wrapper">
@@ -85,209 +121,268 @@
           </div>
 
           <form id="login-form" action="#" method="POST">
-            <div class="form-group">
-              <label class="form-label" for="email">Email Address</label>
-              <input
-                type="email"
-                class="form-input"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-                autocomplete="email"
-              />
-            </div>
+  <div class="form-group">
+    <label class="form-label" for="email">Email Address</label>
+    <input
+      type="email"
+      class="form-input"
+      id="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+      autocomplete="email"
+    />
+  </div>
 
-            <div class="form-group">
-              <label class="form-label" for="password">Password</label>
-              <div style="position: relative">
-                <input
-                  type="password"
-                  class="form-input"
-                  id="password"
-                  name="password"
-                  placeholder="Enter your password"
-                  required
-                  autocomplete="current-password"
-                  style="padding-right: 44px"
-                />
-                <button
-                  type="button"
-                  onclick="togglePassword('password', this)"
-                  style="
-                    position: absolute;
-                    right: 12px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-                    padding: 4px;
-                    color: #6b7280;
-                  "
-                >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+  <div class="form-group">
+    <label class="form-label" for="password">Password</label>
+    <div style="position: relative">
+      <input
+        type="password"
+        class="form-input"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+        autocomplete="current-password"
+        style="padding-right: 44px"
+      />
+      <button
+        type="button"
+        onclick="togglePassword('password', this)"
+        style="
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+          color: #6b7280;
+        "
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </button>
+    </div>
+  </div>
 
-            <div class="form-row">
-              <label class="form-remember">
-                <input type="checkbox" id="remember" name="remember" />
-                Remember me
-              </label>
-              <a
-                href="forgot-password.html"
-                class="form-forgot"
-                id="forgot-password"
-                >Forgot password?</a
-              >
-            </div>
+  <!-- Error message -->
+  <div class="login-error" id="login-error" style="display:none;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <span id="login-error-msg"></span>
+  </div>
 
-            <button type="submit" class="btn-login" id="login-submit">
-              Sign In
-            </button>
-          </form>
+  <div class="form-row">
+    <label class="form-remember">
+      <input type="checkbox" id="remember" name="remember" />
+      Remember me
+    </label>
+    <a href="forgot-password.html" class="form-forgot" id="forgot-password">
+      Forgot password?
+    </a>
+  </div>
 
-          <p class="login-footer-text">
-            Don't have an account? <a href="#">Contact your administrator</a>
-          </p>
-        </div>
-      </div>
-    </main>
-    <footer class="footer" id="footer">
-      <div class="footer-inner">
-        <div class="footer-top">
-          <div class="footer-brand">
-            <img src="img/Tech4Girls logo.png" alt="Tech4Girls Logo" />
-            <div class="divider"></div>
-            <span>Learning Management System</span>
-          </div>
-          <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="login.html">Sign In</a>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div class="footer-partner">
-            <img src="img/hacsa logo.jpg" alt="HACSA Logo" />
-            <span>HACSA Foundation</span>
-          </div>
-          <p class="footer-copy">
-            &copy; 2026 Tech4Girls by HACSA Foundation. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
+  <button type="submit" class="btn-login" id="login-submit">
+    Sign In
+  </button>
+</form>
+  </div>
+</div>
+    </body>
 
     <script>
-      const BASE_URL = "https://t4g-lms.onrender.com";
+      const BASE_URL = "http://127.0.0.1:8000";
 
-      document
-        .getElementById("login-form")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
 
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-          const btn = document.getElementById("login-submit");
+const token = localStorage.getItem("student_token");
+const studentUser = JSON.parse(localStorage.getItem("student_user"));
 
-          btn.textContent = "Signing in...";
-          btn.style.opacity = "0.7";
-          btn.style.pointerEvents = "none";
+function logout() {
+  localStorage.removeItem("student_token");
+  localStorage.removeItem("student_user");
+  window.location.href = "login.html";
+}
 
-          try {
-            const response = await fetch(`${BASE_URL}/students/login`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ email, password }),
-            });
+if (token && studentUser) {
+  window.location.href = "student-dashboard.html";
+}
+function showLoginError(msg) {
+  const box = document.getElementById("login-error");
+  const text = document.getElementById("login-error-msg");
+  text.textContent = msg;
+  box.style.display = "flex";
+}
 
-            const data = await response.json();
+function hideLoginError() {
+  document.getElementById("login-error").style.display = "none";
+}
 
-            if (response.ok) {
-              localStorage.setItem("student_token", data.access_token);
-              localStorage.setItem(
-                "student_user",
-                JSON.stringify(data.student),
-              );
-              window.location.href = "student-dashboard.html";
-            } else {
-              alert(
-                data.detail || "Login failed. Please check your credentials.",
-              );
-              btn.textContent = "Sign In";
-              btn.style.opacity = "1";
-              btn.style.pointerEvents = "auto";
-            }
-          } catch (error) {
-            alert(
-              "Could not connect to server. Make sure your backend is running.",
-            );
-            btn.textContent = "Sign In";
-            btn.style.opacity = "1";
-            btn.style.pointerEvents = "auto";
-          }
-        });
+document.getElementById("login-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  hideLoginError();
 
-      function togglePassword(inputId, btn) {
-        const input = document.getElementById(inputId);
-        if (input.type === "password") {
-          input.type = "text";
-          btn.innerHTML =
-            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
-        } else {
-          input.type = "password";
-          btn.innerHTML =
-            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
-        }
-      }
-      const navbar = document.getElementById("navbar");
-      window.addEventListener("scroll", () => {
-        navbar.classList.toggle("scrolled", window.scrollY > 10);
-      });
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const btn = document.getElementById("login-submit");
 
-      const navToggle = document.getElementById("nav-toggle");
-      const navLinks = document.getElementById("navbar-links");
-      const sidebarOverlay = document.getElementById("sidebar-overlay");
+  btn.textContent = "Signing in...";
+  btn.style.opacity = "0.7";
+  btn.style.pointerEvents = "none";
 
-      function openSidebar() {
-        navToggle.classList.add("active");
-        navLinks.classList.add("active");
-        sidebarOverlay.classList.add("active");
-        document.body.classList.add("sidebar-open");
-      }
+  try {
+    const response = await fetch(`${BASE_URL}/students/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-      function closeSidebar() {
-        navToggle.classList.remove("active");
-        navLinks.classList.remove("active");
-        sidebarOverlay.classList.remove("active");
-        document.body.classList.remove("sidebar-open");
-      }
+    const data = await response.json();
 
-      navToggle.addEventListener("click", openSidebar);
+    if (response.ok) {
+      localStorage.setItem("student_token", data.access_token);
+      localStorage.setItem("student_user", JSON.stringify(data.student));
+      window.location.href = "student-dashboard.html";
+    } else {
+      // Always show a clean generic message regardless of what backend says
+      showLoginError("Invalid credentials. Please check your email and password.");
+      btn.textContent = "Sign In";
+      btn.style.opacity = "1";
+      btn.style.pointerEvents = "auto";
+    }
+  } catch (error) {
+    showLoginError("Unable to connect. Please try again shortly.");
+    btn.textContent = "Sign In";
+    btn.style.opacity = "1";
+    btn.style.pointerEvents = "auto";
+  }
+});
 
-      document
-        .getElementById("sidebar-close")
-        .addEventListener("click", closeSidebar);
+// Hide error when user starts typing again
+document.getElementById("email").addEventListener("input", hideLoginError);
+document.getElementById("password").addEventListener("input", hideLoginError);
 
-      sidebarOverlay.addEventListener("click", closeSidebar);
 
-      navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeSidebar);
-      });
+
+// ── Password toggle ───────────────────────────────────
+function togglePassword(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (input.type === "password") {
+    input.type = "text";
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+  } else {
+    input.type = "password";
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+  }
+}
+
+// ── Navbar scroll shadow ──────────────────────────────
+const navbar = document.getElementById("navbar");
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 10);
+});
+
+// ── Sidebar drawer ────────────────────────────────────
+const navToggle = document.getElementById("nav-toggle");
+const navLinks = document.getElementById("navbar-links");
+const navOverlay = document.getElementById("nav-overlay");
+
+function openNav() {
+  navToggle.classList.add("active");
+  navLinks.classList.add("active");
+  navOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeNav() {
+  navToggle.classList.remove("active");
+  navLinks.classList.remove("active");
+  navOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.contains("active") ? closeNav() : openNav();
+});
+
+navOverlay.addEventListener("click", closeNav);
+
+navLinks.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", closeNav);
+});
+
+// ── Contact Admin Modal ───────────────────────────────
+const modalOverlay = document.getElementById("modal-overlay");
+const modalClose = document.getElementById("modal-close");
+const requestForm = document.getElementById("request-form");
+const modalStatus = document.getElementById("modal-status");
+const modalSubmit = document.getElementById("modal-submit");
+
+function openModal() {
+  closeNav();
+  modalOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  modalOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+// Wire up ALL contact-admin-link elements on the page
+document.querySelectorAll("#contact-admin-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    openModal();
+  });
+});
+
+modalClose.addEventListener("click", closeModal);
+modalOverlay.addEventListener("click", (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+
+// ── Formspree submit ──────────────────────────────────
+requestForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("req-name").value;
+  const track = document.getElementById("req-track").value;
+  const email = document.getElementById("req-email").value;
+
+  modalSubmit.disabled = true;
+  modalSubmit.textContent = "Sending...";
+  modalStatus.textContent = "";
+  modalStatus.className = "modal-status";
+
+  try {
+    const res = await fetch("https://formspree.io/f/mkokrynl", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ name, track, email }),
+    });
+
+    if (res.ok) {
+      modalStatus.textContent = "✓ Request sent! The admin will be in touch.";
+      modalStatus.classList.add("success");
+      requestForm.reset();
+      setTimeout(closeModal, 2500);
+    } else {
+      throw new Error();
+    }
+  } catch {
+    modalStatus.textContent = "✗ Something went wrong. Please try again.";
+    modalStatus.classList.add("error");
+  } finally {
+    modalSubmit.disabled = false;
+    modalSubmit.textContent = "Send Request";
+  }
+});
     </script>
   </body>
 </html>
