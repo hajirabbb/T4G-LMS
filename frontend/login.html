@@ -249,7 +249,7 @@ document.getElementById("login-form").addEventListener("submit", async function 
       localStorage.setItem("student_user", JSON.stringify(data.student));
       window.location.href = "student-dashboard.html";
     } else {
-      // Always show a clean generic message regardless of what backend says
+     
       showLoginError("Invalid credentials. Please check your email and password.");
       btn.textContent = "Sign In";
       btn.style.opacity = "1";
@@ -346,9 +346,13 @@ document.querySelectorAll("#contact-admin-link").forEach((link) => {
 });
 
 
-modalOverlay.addEventListener("click", (e) => {
-  if (e.target === modalOverlay) closeModal();
-});
+
+
+if (modalOverlay) {
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) closeModal();
+  });
+}
 
 // ── Formspree submit ──────────────────────────────────
 requestForm.addEventListener("submit", async (e) => {
