@@ -618,7 +618,7 @@
         }
       }
 
-      const BASE_URL = "t4g-lms-production.up.railway.app";
+      const BASE_URL = "https://t4g-lms-production.up.railway.app";
       const token = localStorage.getItem("student_token");
       const studentUser = JSON.parse(localStorage.getItem("student_user"));
 
@@ -639,7 +639,7 @@
   Student · ${studentUser.track} Track
 `;
 
-      // ── Toast Notification ────────────────────────────────
+     
       function showToast(message, type = "info") {
         const existing = document.getElementById("toast");
         if (existing) existing.remove();
