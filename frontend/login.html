@@ -197,7 +197,7 @@
     </body>
 
     <script>
-      const BASE_URL = "t4g-lms-production.up.railway.app";
+      const BASE_URL = "https://t4g-lms-production.up.railway.app";
 
 
 const token = localStorage.getItem("student_token");
@@ -345,7 +345,7 @@ document.querySelectorAll("#contact-admin-link").forEach((link) => {
   });
 });
 
-modalClose.addEventListener("click", closeModal);
+
 modalOverlay.addEventListener("click", (e) => {
   if (e.target === modalOverlay) closeModal();
 });
