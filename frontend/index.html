@@ -496,7 +496,7 @@ function logout() {
   });
 });
 
-      // ── Active nav link on scroll 
+     
       const sections = document.querySelectorAll("section[id]");
       const navItems = document.querySelectorAll(
         ".navbar-links li a:not(.navbar-signin-btn)",
@@ -548,12 +548,12 @@ function logout() {
 
       function openModal() {
         closeNav(); // close sidebar first
-        modalOverlay.classList.add("active");
+        modalOverlay.classList.add("open");
         document.body.style.overflow = "hidden";
       }
 
       function closeModal() {
-        modalOverlay.classList.remove("active");
+        modalOverlay.classList.remove("open");
         document.body.style.overflow = "";
       }
       document
