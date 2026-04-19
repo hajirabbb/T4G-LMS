@@ -1316,9 +1316,7 @@ h6 {
 }
 
 
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
+
 @keyframes float-subtle {
 
   0%,
@@ -1980,4 +1978,20 @@ h6 {
 
 .password-toggle:hover {
   color: #333;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    max-width: 100%;
+    margin: 0 16px;
+    padding: 24px 20px;
+  }
+} #desktop-contact {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  #desktop-contact {
+    display: none;
+  }
 }

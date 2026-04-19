@@ -192,6 +192,11 @@
     Sign In
   </button>
 </form>
+
+<p class="login-footer-text" id="desktop-contact">
+  Don't have an account? 
+  <a href="#" id="contact-admin-link-desktop">Contact your administrator</a>
+</p>
   </div>
 </div>
 
@@ -357,6 +362,15 @@ navOverlay.addEventListener("click", closeNav);
 navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeNav);
 });
+
+
+const desktopContact = document.getElementById("contact-admin-link-desktop");
+if (desktopContact) {
+  desktopContact.addEventListener("click", (e) => {
+    e.preventDefault();
+    openModal();
+  });
+}
 
 const modalOverlay = document.getElementById("modal-overlay");
 const modalClose = document.getElementById("modal-close");

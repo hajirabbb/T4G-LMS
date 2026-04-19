@@ -3587,3 +3587,7 @@ nav-overlay {
   font-weight: 500;
   margin-bottom: 12px;
 }
+
+.sidebar-footer {
+  margin-top: 16px;
+}
