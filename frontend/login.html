@@ -316,12 +316,15 @@ navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeNav);
 });
 
-// ── Contact Admin Modal ───────────────────────────────
 const modalOverlay = document.getElementById("modal-overlay");
 const modalClose = document.getElementById("modal-close");
 const requestForm = document.getElementById("request-form");
 const modalStatus = document.getElementById("modal-status");
 const modalSubmit = document.getElementById("modal-submit");
+
+if (modalClose) {
+  modalClose.addEventListener("click", closeModal);
+}
 
 function openModal() {
   closeNav();
