@@ -15,7 +15,7 @@
 (function (global) {
   "use strict";
 
-  var BASE_URL = "https://t4g-lms-backend.fly.dev";
+  var BASE_URL = "https://backend-f7040981.fastapicloud.dev";
 
   // Allow local development against a local API without editing this file.
   try {
